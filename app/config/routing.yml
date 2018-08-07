@@ -1,3 +1,7 @@
+ptitdej:
+    resource: "@PtitdejBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

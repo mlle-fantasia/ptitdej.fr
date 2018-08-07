@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
+    {#{% stylesheets 'bundles/ptitdejbundle/css/ptitdej.css' %}#}
+        {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />#}
+    {#{% endstylesheets %}#}
+
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('bundles/ptitdej/ptitdej.css')  }}">
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titre">
+                <h1>Augmenter la productivité de vos salariés </br> en 1 minute</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise2.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise3.jpg') }}" alt="" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise4.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise5.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise2.jpg') }}" alt="" /></div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise3.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="preuve">
+            <p>Notre réseau compte déjà plus de 150 entreprises</p>
+        </div>
+        <div class="texte ">
+            <p>Pour tout événement (worshop, réunion, rencontre ou simple journée de travail...) il est bon de bien commencer la journée !</br>
+                <strong>Ptidej.fr</strong> vous mets en relation avec des prestaires des petit déjeuner dans votre région qui répondrons à vos besoin en respectant votre budget.
+            </p>
+        </div>
+        <div class="boutons">
+            <div class="col-md-6">
+                <a class="col-md-3 col-md-offset-9 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+                    entreprise
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a class="col-md-3 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+                    prestataires
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row tasseDessin">
+        <div class="col-md-4 col-xs-12 ">
+            <img src="{{ asset('images/tasse1.png') }}" alt="" />
+            <h3>Gagnez du temps !</h3>
+            <p>Vous n'aurai pas à prospecter des heures pour trouver un prestataire à la hauteur, nous nous en chargons pour vous.</p>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <img src="{{ asset('images/tasse2.png') }}" alt="" />
+            <h3>Renforcez l'espris d'équipe !</h3>
+            <p>Un bon petit déjeuner assure la bonne humeur de tous les employers et crée du lien social au sein de l'équipe.</p>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <img src="{{ asset('images/tasse3.png') }}" alt="" />
+            <h3>Augmentez l'efficacité au travail !</h3>
+            <p>Un petit déjeuner fait toujours plaisir et renforce la motivation des employers pour vous le rendre dans leur travail.</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="container-fluid couleur">
+    <p> Vous êtes une entreprise à la recherche d'un prestataire de petits déjeuner ? </p>
+    <a class="col-md-2 col-md-offset-5 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+          entreprise
+    </a>
+</div>
+
+
+
+<div class="container">
+    <div class="row explications">
+        <div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-2 col-sm-offset-1">
+            <div class="tassethe">
+                <img src="{{ asset('images/the.png') }}" alt="image d'une tasse de thé" />
+                {#<img src="images/thé.png" class="imgflottantexs" alt="image d'une tasse de thé ">#}
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-8">
+            <div class="explicationsTexte">
+                <p> <em> Entreprises,</em> vous voulez organiser un petit déjeuner dans votre entreprise, vous avez raison, pour tout événement (worshop, réunion, rencontre...) il est bon de bien commencer la journée ! Décrivez-nous votre événement dans le cours formulaire et nous nous occupons de vous trouver le prestataire qui répondra à vos attentes et à votre budget. Il vous contactera ensuite directement.</p>
+            </div>
+        </div>
+
+        <div class="tassexs hidden-sm">
+            <div class="col-xs-3 visible-xs-block">
+                <img src="{{ asset('images/chocolat.png') }}" alt="image d'une tasse de chocolat" />
+                {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de chocolat">#}
+            </div>
+        </div>
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-1">
+            <div class="explicationsTexte prestataireTexteExplication">
+                <p> <em> Prestataires,</em> vous êtes un professionel du petit déjeuner ? Inscrivez-vous gratuitement sur notre site et profitez de notre reseau d'entreprises.
+                    Décrivez-nous vos différentes offres, nous selectionnerons les clients qui vous correspondent.</p>
+            </div>
+        </div>
+        <div class="col-md-2 hidden-xs col-sm-2">
+            <div class="tassechoco">
+                <img src="{{ asset('images/chocolat.png') }}" alt="image d'une tasse de chocolat" />
+                {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de café">#}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="container-fluid couleur">
+    <p> Vous êtes un prestataire de petits déjeuner ? Inscrivez-vous ici : </p>
+    <a class="col-md-2 col-md-offset-5 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+        prestataires
+    </a>
+</div>
+
+
+
+<div class="container-fluid commentaires">
+    {{ include("PtitdejBundle:Default:carouselCom.html.twig") }}
+</div>
+<div class="container-fluid footer">
+    {{ include("PtitdejBundle:Default:footer.html.twig") }}
+</div>
+
+
+
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
+</body>
+</html>

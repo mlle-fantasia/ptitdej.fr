@@ -1,0 +1,3 @@
+ptitdej_homepage:
+    path:     /
+    defaults: { _controller: PtitdejBundle:Default:index }
