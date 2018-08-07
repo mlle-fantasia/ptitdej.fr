@@ -47,6 +47,12 @@ class Offre
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Entreprise")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $entreprise;
+
 
     /**
      * Get id
@@ -152,5 +158,29 @@ class Offre
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param \PtitdejBundle\Entity\Entreprise $entreprise
+     *
+     * @return Offre
+     */
+    public function setEntreprise(\PtitdejBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \PtitdejBundle\Entity\Entreprise
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
     }
 }

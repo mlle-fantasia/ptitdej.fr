@@ -60,6 +60,12 @@ class Evenement
      * @ORM\OneToOne(targetEntity="PtitdejBundle\Entity\Photo", cascade={"persist"})
      */
     private $photo;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Entreprise")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $entreprise;
 
 
     /**
@@ -214,5 +220,29 @@ class Evenement
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param \PtitdejBundle\Entity\Entreprise $entreprise
+     *
+     * @return Evenement
+     */
+    public function setEntreprise(\PtitdejBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \PtitdejBundle\Entity\Entreprise
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
     }
 }
