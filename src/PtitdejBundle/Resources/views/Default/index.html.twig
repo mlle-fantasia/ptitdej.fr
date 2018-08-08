@@ -11,7 +11,7 @@
 
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('bundles/ptitdej/ptitdej.css')  }}">
     {% endblock %}
 </head>
@@ -19,79 +19,84 @@
 <body>
 
 <div class="container-fluid footer">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="titre">
-                <h1>Augmenter la productivité de vos salariés </br> en 1 minute</h1>
-            </div>
+    {#<div class="row">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-12">#}
+                    <div class="titre">
+                        <h1>Augmenter la productivité de vos salariés en 1 minute</h1>
+                    </div>
 
-        </div>
-    </div>
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 </div>
-<div class="container-fluid ">
+<div class="container ">
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise2.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise3.jpg') }}" alt="" /></div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise4.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise5.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise2.jpg') }}" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise3.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise4.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise2.jpg') }}" class="img-fluid" alt="" /></div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise3.jpg') }}" alt="" /></div>
-                <div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>
+                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block">
+                    <img src="{{ asset('images/entreprise3.jpg') }}" class="img-fluid" alt="" />
+                    <img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt="" />
+                </div>
+                {#<div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>#}
             </div>
         </div>
 
     </div>
 </div>
 <div class="container-fluid footer">
-    <div class="row">
-        <div class="preuve">
-            <p>Notre réseau compte déjà plus de 150 entreprises</p>
-        </div>
-        <div class="texte ">
-            <p>Pour tout événement (worshop, réunion, rencontre ou simple journée de travail...) il est bon de bien commencer la journée !</br>
-                <strong>Ptidej.fr</strong> vous mets en relation avec des prestaires des petit déjeuner dans votre région qui répondrons à vos besoin en respectant votre budget.
-            </p>
-        </div>
-        <div class="boutons">
-            <div class="col-md-6">
-                <a class="col-md-3 col-md-offset-9 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
-                    entreprise
-                </a>
+
+            <div class="preuve">
+                <p>Notre réseau compte déjà plus de 150 entreprises</p>
             </div>
-            <div class="col-md-6">
-                <a class="col-md-3 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
-                    prestataires
-                </a>
+            <div class="texte ">
+                <p>Pour tout événement (worshop, réunion, rencontre ou simple journée de travail...) il est bon de bien commencer la journée !</br>
+                    <strong>Ptidej.fr</strong> vous mets en relation avec des prestaires des petit déjeuner dans votre région qui répondrons à vos besoin en respectant votre budget.
+                </p>
             </div>
-        </div>
-    </div>
+            <div class="container boutons">
+                <div class="">
+                    <a class="col-md-5 col-xs-6 float-right btn myButton " href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+                        entreprise
+                    </a>
+                </div>
+                <div class="">
+                    <a class="col-md-5 col-xs-6 btn myButton " href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+                        prestataires
+                    </a>
+                </div>
+            </div>
+
 
 </div>
 <div class="container">
     <div class="row tasseDessin">
         <div class="col-md-4 col-xs-12 ">
-            <img src="{{ asset('images/tasse1.png') }}" alt="" />
+            <img src="{{ asset('images/tasse1.png') }}" class="img-fluid" alt="" />
             <h3>Gagnez du temps !</h3>
             <p>Vous n'aurai pas à prospecter des heures pour trouver un prestataire à la hauteur, nous nous en chargons pour vous.</p>
         </div>
         <div class="col-md-4 col-xs-12">
-            <img src="{{ asset('images/tasse2.png') }}" alt="" />
+            <img src="{{ asset('images/tasse2.png') }}" class="img-fluid" alt="" />
             <h3>Renforcez l'espris d'équipe !</h3>
             <p>Un bon petit déjeuner assure la bonne humeur de tous les employers et crée du lien social au sein de l'équipe.</p>
         </div>
         <div class="col-md-4 col-xs-12">
-            <img src="{{ asset('images/tasse3.png') }}" alt="" />
+            <img src="{{ asset('images/tasse3.png') }}" class="img-fluid" alt="" />
             <h3>Augmentez l'efficacité au travail !</h3>
             <p>Un petit déjeuner fait toujours plaisir et renforce la motivation des employers pour vous le rendre dans leur travail.</p>
         </div>
@@ -103,7 +108,7 @@
 
 <div class="container-fluid couleur">
     <p> Vous êtes une entreprise à la recherche d'un prestataire de petits déjeuner ? </p>
-    <a class="col-md-2 col-md-offset-5 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+    <a class="col-md-2 btn myButton btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
           entreprise
     </a>
 </div>
@@ -112,33 +117,33 @@
 
 <div class="container">
     <div class="row explications">
-        <div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-2 col-sm-offset-1">
+        <div class="col-md-2 offset-md-2 col-xs-3 col-sm-2 offset-sm-1">
             <div class="tassethe">
-                <img src="{{ asset('images/the.png') }}" alt="image d'une tasse de thé" />
+                <img src="{{ asset('images/the.png') }}" class="img-fluid " alt="image d'une tasse de thé" />
                 {#<img src="images/thé.png" class="imgflottantexs" alt="image d'une tasse de thé ">#}
             </div>
         </div>
         <div class="col-md-6 col-sm-8">
-            <div class="explicationsTexte">
+            <div class="explicationsTexte ">
                 <p> <em> Entreprises,</em> vous voulez organiser un petit déjeuner dans votre entreprise, vous avez raison, pour tout événement (worshop, réunion, rencontre...) il est bon de bien commencer la journée ! Décrivez-nous votre événement dans le cours formulaire et nous nous occupons de vous trouver le prestataire qui répondra à vos attentes et à votre budget. Il vous contactera ensuite directement.</p>
             </div>
         </div>
 
-        <div class="tassexs hidden-sm">
-            <div class="col-xs-3 visible-xs-block">
-                <img src="{{ asset('images/chocolat.png') }}" alt="image d'une tasse de chocolat" />
+        <div class="tassexs d-md-none">
+            <div class="col-xs-3">
+                <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
                 {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de chocolat">#}
             </div>
         </div>
-        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-1">
+        <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-1">
             <div class="explicationsTexte prestataireTexteExplication">
                 <p> <em> Prestataires,</em> vous êtes un professionel du petit déjeuner ? Inscrivez-vous gratuitement sur notre site et profitez de notre reseau d'entreprises.
                     Décrivez-nous vos différentes offres, nous selectionnerons les clients qui vous correspondent.</p>
             </div>
         </div>
-        <div class="col-md-2 hidden-xs col-sm-2">
-            <div class="tassechoco">
-                <img src="{{ asset('images/chocolat.png') }}" alt="image d'une tasse de chocolat" />
+        <div class="col-md-2">
+            <div class="tassechoco d-none d-md-block">
+                <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
                 {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de café">#}
             </div>
         </div>
@@ -150,7 +155,7 @@
 
 <div class="container-fluid couleur">
     <p> Vous êtes un prestataire de petits déjeuner ? Inscrivez-vous ici : </p>
-    <a class="col-md-2 col-md-offset-5 btn btn-danger btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+    <a class="col-md-2 btn myButton btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
         prestataires
     </a>
 </div>
