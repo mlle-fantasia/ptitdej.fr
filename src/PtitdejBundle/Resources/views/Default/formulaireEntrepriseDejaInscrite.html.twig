@@ -1,0 +1,17 @@
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
+{% block formulaire %}
+
+<div class="container">
+
+    {{ form_start(formEntreprise) }}
+
+    {{ form_label(formEntreprise.mail,'Entrez votre adresse mail')  }}
+    {{ form_widget(formEntreprise.mail) }}
+    {{ form_errors(formEntreprise.mail) }}
+
+    <button class="myButtonBis"><a href="{{ path('form_entreprise') }}">retrouver mes infos</a></button>
+
+
+
+</div>
+{% endblock %}

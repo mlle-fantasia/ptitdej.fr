@@ -1,8 +1,14 @@
 {% extends "@Ptitdej/Default/formulaire.html.twig" %}
 
+
 {% block evenement %}
-    {{ form_start(form) }}
-    <div class="form-group form-inline">{{ form_row(form.date) }}</div>
-    {{ form_end(form) }}
+<fieldset class="evenement">
+    <legend>Renseignements sur l'événement</legend>
+    <hr>
+    {{ form_start(formEvenement) }}
+    <div class="form-group form-inline">{{ form_row(formEvenement.date) }}</div>
+    {{ form_end(formEvenement) }}
+</fieldset>
 {% endblock %}
+
 

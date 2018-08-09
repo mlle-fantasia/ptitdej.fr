@@ -1,0 +1,51 @@
+.bandeau{
+    background-color: black;
+    height: 40px;
+}
+legend{
+    font-size: 26px;
+}
+.dejaInscrit{
+    font-size: 28px;
+    margin: 40px;
+}
+.form-label{
+    text-align: right;
+    margin-right: 10px;
+    color: #313131;
+}
+.form-input{
+    text-align: left;
+}
+
+.myButtonBis {
+    background-color: #ffb726;
+    -moz-border-radius:14px;
+    -webkit-border-radius:14px;
+    border-radius:14px;
+    border:1px solid #ff2424;
+    display:inline-block;
+    cursor:pointer;
+    color:#fff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:6px 20px;
+    text-decoration:none;
+    text-shadow:0 1px 0 #ff6666;
+}
+.myButtonBis:hover {
+    background-color: #ff581c;
+    text-decoration: none;
+    color:#fff;
+}
+.myButtonBis:active {
+    position:relative;
+    top:1px;
+}
+.myButtonBis a {
+     color:#fff;
+}
+.myButtonBis a:hover {
+    text-decoration: none;
+}

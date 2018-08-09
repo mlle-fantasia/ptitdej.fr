@@ -21,16 +21,17 @@
             <div class="col-md-4 footerListe">
                 <h5>menu</h5>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Qui sommes-nous ? </a></li>
-                    <li><a href="#">Nous contacter </a></li>
+                    <li><a href="{{ path('ptitdej_homepage') }}">Accueil</a></li>
+                    <li><a href="{{ path('ptitdej_homepage') }}">Qui sommes-nous ? </a></li>
+                    <li><a href="{{ path('ptitdej_homepage') }}">Nous contacter </a></li>
                 </ul>
             </div>
             <div class="col-md-4 footerListe">
                 <h5>Actions</h5>
                 <ul>
-                    <li><a href="#">organiser un petit dej</a></li>
-                    <li><a href="#">vendre des petits dej</a></li>
+                    <li><a href="{{ path('form_entreprise') }}">organiser un petit dej</a></li>
+                    <li><a href="{{ path('form_prestataire') }}">vendre des petits dej</a></li>
+                    <li><a href="{{ path('form_com') }}">ajoutez un commentaire</a></li>
 
                 </ul>
             </div>

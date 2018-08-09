@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
+    {#{% stylesheets 'src/ptitdejbundle/public/css/ptitdej.css' %}#}
+    {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />#}
+    {#{% endstylesheets %}#}
+
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">
+        <link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="container-fluid bandeau">
+</div>
+
+<div class="container">
+{% block formulaire %}
+{% endblock %}
+</div>
+
+</body>
+</html>

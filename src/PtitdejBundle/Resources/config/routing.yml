@@ -5,3 +5,15 @@ ptitdej_homepage:
 form_entreprise:
     path:     /formulaire-entreprise
     defaults: { _controller: PtitdejBundle:Default:formulaireEntreprise }
+
+form_entreprise_deja_inscrite:
+    path:     /formulaire-entreprise-deja-inscrite
+    defaults: { _controller: PtitdejBundle:Default:formulaireEntrepriseDejaInscrite }
+
+form_prestataire:
+    path:     /formulaire-prestataire
+    defaults: { _controller: PtitdejBundle:Default:formulairePrestataire }
+
+form_com:
+    path:     /ajouter-commentaire
+    defaults: { _controller: PtitdejBundle:Default:formulaireCom }

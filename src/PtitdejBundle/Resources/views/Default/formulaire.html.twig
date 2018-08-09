@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
 
-    <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
-    {#{% stylesheets 'bundles/ptitdejbundle/css/ptitdej.css' %}#}
-    {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />#}
-    {#{% endstylesheets %}#}
+{% block formulaire %}
 
-    {% block stylesheets %}
-        {# On charge le CSS de bootstrap depuis le site directement #}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('bundles/ptitdej/ptitdej.css')  }}">
-        <link rel="stylesheet" href="{{ asset('bundles/ptitdej/formulaire.css')  }}">
-    {% endblock %}
-</head>
-
-<body>
-    <div class="container-fluid bandeau">
-
-    </div>
-    <div class="container">
-        <div>
+        <div class="dejaInscrit">
             Etês-vous déjà inscrit sur notre site ?
-            <button><a href="#">oui</a></button>
+            <button class="myButtonBis"><a href="{{ path('form_entreprise_deja_inscrite') }}">Oui</a></button><br/>
+            si non remplissez le formulaire suivant
         </div>
 
         {% block h1 %}
@@ -37,37 +18,19 @@
 
 
 
-            {{ form_start(form) }}
+            {{ form_start(formEntreprise) }}
 
             {% set class = "" %}
-            {% if not form.nom.vars.valid %}
+            {% if not formEntreprise.nom.vars.valid %}
                 {% set class = 'has-error' %}
             {% endif %}
-            <div class="form-group form-inline {{ class }}">
+            <div class="form-group {{ class }}">
 
-                <label for="{{ form.nom.vars.id }}" class="form-label control-label">Nom de votre entreprise</label>
-                <input type="text" class="form-control form-input" id="{{ form.nom.vars.id }}" name="{{ form.nom.vars.full_name }}" value="{{ form.nom.vars.value }}">
-                {% do form.nom.setRendered %}
-                {% if not form.nom.vars.valid %}
-                    {% for error in form.nom.vars.errors %}
-                        <span class="help-block">{{ error.message }}</span>
-                    {% endfor %}
-                {% endif %}
-
-            </div>
-
-            {{ dump() }}
-            {% set class = "" %}
-            {% if not form.mail.vars.valid %}
-                {% set class = 'has-error' %}
-            {% endif %}
-            <div class="form-group form-inline {{ class }}">
-
-                <label for="{{ form.mail.vars.id }}" class="form-label control-label">votre adresse mail</label>
-                <input type="text" class="form-control form-input" id="{{ form.mail.vars.id }}" name="{{ form.mail.vars.full_name }}" value="{{ form.mail.vars.value }}">
-                {% do form.mail.setRendered %}
-                {% if not form.mail.vars.valid %}
-                    {% for error in form.mail.vars.errors %}
+                <label for="{{ formEntreprise.nom.vars.id }}" class="form-label control-label">Nom de votre entreprise</label>
+                <input type="text" class="form-control form-input" id="{{ formEntreprise.nom.vars.id }}" name="{{ formEntreprise.nom.vars.full_name }}" value="{{ formEntreprise.nom.vars.value }}">
+                {% do formEntreprise.nom.setRendered %}
+                {% if not formEntreprise.nom.vars.valid %}
+                    {% for error in formEntreprise.nom.vars.errors %}
                         <span class="help-block">{{ error.message }}</span>
                     {% endfor %}
                 {% endif %}
@@ -76,16 +39,16 @@
 
 
             {% set class = "" %}
-            {% if not form.adresse.vars.valid %}
+            {% if not formEntreprise.mail.vars.valid %}
                 {% set class = 'has-error' %}
             {% endif %}
-            <div class="form-group form-inline {{ class }}">
+            <div class="form-group {{ class }}">
 
-                <label for="{{ form.adresse.vars.id }}" class="form-label control-label">adresse de votre entreprise</label>
-                <input type="text" class="form-control form-input" id="{{ form.adresse.vars.id }}" name="{{ form.adresse.vars.full_name }}" value="{{ form.adresse.vars.value }}">
-                {% do form.adresse.setRendered %}
-                {% if not form.adresse.vars.valid %}
-                    {% for error in form.adresse.vars.errors %}
+                <label for="{{ formEntreprise.mail.vars.id }}" class="form-label control-label">votre adresse mail</label>
+                <input type="text" class="form-control form-input" id="{{ formEntreprise.mail.vars.id }}" name="{{ formEntreprise.mail.vars.full_name }}" value="{{ formEntreprise.mail.vars.value }}">
+                {% do formEntreprise.mail.setRendered %}
+                {% if not formEntreprise.mail.vars.valid %}
+                    {% for error in formEntreprise.mail.vars.errors %}
                         <span class="help-block">{{ error.message }}</span>
                     {% endfor %}
                 {% endif %}
@@ -93,18 +56,43 @@
             </div>
 
 
-            <div class="form-group form-inline">{{ form_row(form.codePostal) }}</div>
-            <div class="form-group form-inline">{{ form_row(form.tel) }}</div>
+            {% set class = "" %}
+            {% if not formEntreprise.adresse.vars.valid %}
+                {% set class = 'has-error' %}
+            {% endif %}
+            <div class="form-group {{ class }}">
 
-            {% block evenement %}
-            {% endblock %}
+                <label for="{{ formEntreprise.adresse.vars.id }}" class="form-label control-label">adresse de votre entreprise</label>
+                <input type="text" class="form-control form-input" id="{{ formEntreprise.adresse.vars.id }}" name="{{ formEntreprise.adresse.vars.full_name }}" value="{{ formEntreprise.adresse.vars.value }}">
+                {% do formEntreprise.adresse.setRendered %}
+                {% if not formEntreprise.adresse.vars.valid %}
+                    {% for error in formEntreprise.adresse.vars.errors %}
+                        <span class="help-block">{{ error.message }}</span>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
 
 
-            {{ form_end(form) }}
-
+            <div class="form-group ">{{ form_row(formEntreprise.codePostal) }}</div>
+            <div class="form-group ">
+                {{ form_label(formEntreprise.tel, 'Votre numéro de téléphone') }}
+                {{ form_widget(formEntreprise.tel) }}
+                {{ form_errors(formEntreprise.tel) }}
+            </div>
 
         </fieldset>
 
-    </div>
-</body>
-</html>
+            {% block evenement %}
+            {% endblock %}
+        {{ form_widget(formEntreprise.save) }}
+        {#<input type="submit" class="myButtonBis" form="{{ formEntreprise.vars.id }}" value="Enregistrer" >#}
+        {#{% do formEntreprise.save.setRendered %}#}
+
+
+            {{ form_end(formEntreprise) }}
+
+
+
+
+{% endblock %}

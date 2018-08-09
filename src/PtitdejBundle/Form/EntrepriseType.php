@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EntrepriseType extends AbstractType
 {
@@ -21,8 +22,15 @@ class EntrepriseType extends AbstractType
             ->add('mail', EmailType::class)
             ->add('adresse', TextType::class)
             ->add('codePostal', NumberType::class)
-            ->add('tel', NumberType::class, array('required' => false));
-    }/**
+            ->add('tel', NumberType::class, array('required' => false))
+            ->add('save',      SubmitType::class)
+            ->getForm();
+
+
+    }
+
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

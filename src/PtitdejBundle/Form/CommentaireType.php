@@ -6,31 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
-class EvenementType extends AbstractType
+class CommentaireType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('date', DateType::class)
-            ->add('lieu',TextType::class)
-            ->add('nbPersonne', NumberType::class)
-            ->add('duree', NumberType::class)
-            ->add('budjet', MoneyType::class);
+        $builder->add('texte', TextType::class);
+    }
 
-    }/**
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PtitdejBundle\Entity\Evenement'
+            'data_class' => 'PtitdejBundle\Entity\Commentaire'
         ));
     }
 
@@ -39,7 +32,7 @@ class EvenementType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'ptitdejbundle_evenement';
+        return 'ptitdejbundle_commentaire';
     }
 
 
