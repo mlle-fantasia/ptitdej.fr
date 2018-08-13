@@ -67,7 +67,7 @@ h1{
     margin: 70px 10px 40px 10px;
 }
 .couleur{
-    background-color: rgb(200,187,168);
+    background-color: rgb(41, 26, 14);
     text-align: center;
     padding: 40px;
 }
@@ -83,7 +83,30 @@ h1{
 .gras{
     font-size: 22px;
     font-style: normal;
+    color: #fff;
 }
+.plus{
+    font-size: 22px;
+    font-style: normal;
+}
+
+.carousel-inner {
+    margin: auto;
+}
+.carousel-texte{
+    color: black;
+}
+.carousel-item{
+    padding: 40px 0;
+}
+.carousel-control-next, .carousel-control-prev{
+    color:#310d0d;
+}
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+    opacity: 1;
+    color:#310d0d;
+}
+
 .footer{
     padding: 30px 0 40px 0;
     background-color: rgb(49, 32, 19);
