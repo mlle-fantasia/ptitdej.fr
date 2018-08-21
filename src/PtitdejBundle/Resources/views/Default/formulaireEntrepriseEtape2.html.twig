@@ -1,0 +1,36 @@
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
+
+{% block formulaire %}
+
+    <fieldset class="entreprise">
+        <legend>Renseignements sur votre événement</legend>
+        <hr>
+
+        {{ form_start(formEven) }}
+
+        {{ form_label(formEven.date,'La date de votre ptit dej') }}
+        {{ form_widget(formEven.date) }}
+        {{ form_errors(formEven.date) }}
+
+        {{ form_label(formEven.lieu,'Adresse de votre ptit dej') }}
+        {{ form_widget(formEven.lieu) }}
+        {{ form_errors(formEven.lieu) }}
+
+        {{ form_label(formEven.nbPersonne,'Le nombre de personne prévu') }}
+        {{ form_widget(formEven.nbPersonne) }}
+        {{ form_errors(formEven.nbPersonne) }}
+
+        {{ form_label(formEven.budjet,'Le budget aloué à votre ptit dej') }}
+        {{ form_widget(formEven.budjet) }}
+        {{ form_errors(formEven.budjet) }}
+
+
+
+        {{ form_widget(formEntreprise.previousStep, { 'label': 'Retour' }) }}
+        {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer et continuer plus tard' }) }}
+        {{ form_widget(formEntreprise.nextStep, { 'label': 'Etape suivante' }) }}
+
+
+    </fieldset>
+
+{% endblock %}

@@ -28,12 +28,7 @@ class Entreprise
      */
     private $nom;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255, unique=true)
-     */
-    private $mail;
+
 
     /**
      * @var string
@@ -55,6 +50,11 @@ class Entreprise
      * @ORM\Column(name="tel", type="string", length=255, nullable=true)
      */
     private $tel;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PtitdejBundle\Entity\Referent")
+     */
+    private $referent;
 
 
     /**
@@ -91,29 +91,6 @@ class Entreprise
         return $this->nom;
     }
 
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     *
-     * @return Entreprise
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
 
     /**
      * Set adresse
@@ -186,5 +163,45 @@ class Entreprise
     {
         return $this->tel;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->referent = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add referent
+     *
+     * @param \PtitdejBundle\Entity\Referent $referent
+     *
+     * @return Entreprise
+     */
+    public function addReferent(\PtitdejBundle\Entity\Referent $referent)
+    {
+        $this->referent[] = $referent;
+
+        return $this;
+    }
+
+    /**
+     * Remove referent
+     *
+     * @param \PtitdejBundle\Entity\Referent $referent
+     */
+    public function removeReferent(\PtitdejBundle\Entity\Referent $referent)
+    {
+        $this->referent->removeElement($referent);
+    }
+
+    /**
+     * Get referent
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReferent()
+    {
+        return $this->referent;
+    }
+}

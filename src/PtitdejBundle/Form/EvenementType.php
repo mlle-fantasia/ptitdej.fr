@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EvenementType extends AbstractType
 {
@@ -22,8 +22,18 @@ class EvenementType extends AbstractType
             ->add('lieu',TextType::class)
             ->add('nbPersonne', NumberType::class)
             ->add('duree', NumberType::class)
-            ->add('budjet', MoneyType::class);
-
+            ->add('budjet', NumberType::class)
+            ->add('save',SubmitType::class, array(
+                'attr' => array('class' => 'myButtonBis'),
+            ))
+            ->add('previousStep', SubmitType::class, array(
+                'validation_groups' => false,
+                'attr' => array('class' => 'myButtonBis'),
+            ))
+            ->add('nextStep', SubmitType::class, array(
+                'validation_groups' => array('Registration'),
+                'attr' => array('class' => 'myButtonBis'),
+            ));
     }/**
      * {@inheritdoc}
      */

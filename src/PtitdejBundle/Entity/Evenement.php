@@ -67,6 +67,12 @@ class Evenement
      */
     private $entreprise;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Referent")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $referent;
+
 
     /**
      * Get id

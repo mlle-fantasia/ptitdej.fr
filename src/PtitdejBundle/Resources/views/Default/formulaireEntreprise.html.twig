@@ -1,14 +1,64 @@
-{% extends "@Ptitdej/Default/formulaire.html.twig" %}
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
+
+{% block formulaire %}
+
+    {% block h1 %}
+    {% endblock %}
 
 
-{% block evenement %}
-<fieldset class="evenement">
-    <legend>Renseignements sur l'événement</legend>
-    <hr>
-    {{ form_start(formEvenement) }}
-    <div class="form-group form-inline">{{ form_row(formEvenement.date) }}</div>
-    {{ form_end(formEvenement) }}
-</fieldset>
+    <fieldset class="entreprise">
+        <legend>Vos renseignements</legend>
+        <hr>
+
+
+
+        {#{% set class = "" %}#}
+        {#{% if not formEntreprise.nom.vars.valid %}#}
+        {#{% set class = 'has-error' %}#}
+        {#{% endif %}#}
+        {#<div class="form-group {{ class }}">#}
+
+        {#<label for="{{ formEntreprise.nom.vars.id }}" class="form-label control-label">Nom de votre entreprise</label>#}
+        {#<input type="text" class="form-control form-input" id="{{ formEntreprise.nom.vars.id }}" name="{{ formEntreprise.nom.vars.full_name }}" value="{{ formEntreprise.nom.vars.value }}">#}
+        {#{% do formEntreprise.nom.setRendered %}#}
+        {#{% if not formEntreprise.nom.vars.valid %}#}
+        {#{% for error in formEntreprise.nom.vars.errors %}#}
+        {#<span class="help-block">{{ error.message }}</span>#}
+        {#{% endfor %}#}
+        {#{% endif %}#}
+
+        {#</div>#}
+
+        {{ form_start(formReferent) }}
+
+        {{ form_label(formReferent.nom,'Votre nom') }}
+        {{ form_widget(formReferent.nom) }}
+        {{ form_errors(formReferent.nom) }}
+
+        {{ form_label(formReferent.mail,'Votre adresse mail') }}
+        {{ form_widget(formReferent.mail) }}
+        {{ form_errors(formReferent.mail) }}
+
+        {{ form_end(formReferent) }}
+
+        {{ form_start(formEntreprise) }}
+
+        {{ form_label(formEntreprise.nom,'Le nom de votre entreprise') }}
+        {{ form_widget(formEntreprise.nom) }}
+        {{ form_errors(formEntreprise.nom) }}
+
+
+
+        {#{{ form_widget(formEntreprise.previousStep, { 'label': 'Retour' }) }}#}
+        {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer et continuer plus tard' }) }}
+        {{ form_widget(formEntreprise.nextStep, { 'label': 'Etape suivante' }) }}
+        {#<input type="submit" class="myButtonBis" form="{{ formEntreprise.vars.id }}" value="Enregistrer" >#}
+        {#{% do formEntreprise.save.setRendered %}#}
+
+
+    </fieldset>
+
+
+
 {% endblock %}
-
 

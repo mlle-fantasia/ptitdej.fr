@@ -27,6 +27,9 @@
         {#<div class="container">#}
             {#<div class="row">#}
                 {#<div class="col-md-12">#}
+                    <div class="logo">
+                        <p>P'titDej.fr</p>
+                    </div>
                     <div class="titre">
                         <h1>Augmenter la productivité de vos salariés <br/> en leur commandant un bon petit dej</h1>
                     </div>
@@ -42,19 +45,19 @@
             <div class="row">
                 <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>
                 <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise3.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise4.jpg') }}" class="img-fluid" alt="" /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise2.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/photodej8.JPG') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/petits-dejeuners9.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise52.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise32.jpg') }}" class="img-fluid" alt="" /></div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise4.jpg') }}" class="img-fluid" alt="" /></div>
                 <div class="col-md-4 intro d-none d-md-block">
-                    <img src="{{ asset('images/entreprise3.jpg') }}" class="img-fluid" alt="" />
-                    <img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt="" />
+                    <img src="{{ asset('images/imagesdej6.jpg') }}" class="img-fluid" alt="" />
+                    <img src="{{ asset('images/photodej7.jpg') }}" class="img-fluid" alt="" />
                 </div>
                 {#<div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>#}
             </div>
@@ -74,12 +77,12 @@
             </div>
             <div class="container boutons">
                 <div class="">
-                    <a class="col-md-5 col-xs-6 float-right btn myButton " href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+                    <a class="col-md-5 col-xs-6 float-right btn myButton " href="{{ path('form_entreprise') }}">
                         entreprises :<br/> organisez votre petit dej
                     </a>
                 </div>
                 <div class="">
-                    <a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_entreprise') }}">
+                    <a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_prestataire') }}">
                         prestataires : <br/>inscription gratuite
                     </a>
                 </div>
@@ -112,7 +115,7 @@
 
 <div class="container-fluid couleur">
     <p class="gras"> Vous êtes une entreprise à la recherche d'un prestataire de petits déjeuner ? </p>
-    <a class="col-md-2 btn myButton btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+    <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
           entreprises :<br/> organisez votre petit dej
     </a>
 </div>
@@ -161,7 +164,7 @@
 
 <div class="container-fluid couleur">
     <p class="gras"> Vous êtes un prestataire de petits déjeuner ? Inscrivez-vous ici : </p>
-    <a class="col-md-2 btn myButton btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
+    <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
         prestataires : <br/>inscription gratuite
     </a>
 </div>

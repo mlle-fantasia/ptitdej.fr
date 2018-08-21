@@ -1,0 +1,22 @@
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
+
+{% block formulaire %}
+
+    <fieldset class="entreprise">
+        <legend>Quelles sont les offres que vous proposez ? </legend>
+        <hr>
+
+        {{ form_start(formOffre) }}
+
+
+
+
+
+        {{ form_widget(formOffre.previousStep, { 'label': 'Retour' }) }}
+        {{ form_widget(formOffre.save, { 'label': 'Enregistrer et continuer plus tard' }) }}
+        {{ form_widget(formOffre.nextStep, { 'label': 'Etape suivante' }) }}
+
+
+    </fieldset>
+
+{% endblock %}
