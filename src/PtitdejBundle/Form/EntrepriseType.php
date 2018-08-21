@@ -2,12 +2,15 @@
 
 namespace PtitdejBundle\Form;
 
+use PtitdejBundle\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 
 class EntrepriseType extends AbstractType
 {
@@ -21,6 +24,7 @@ class EntrepriseType extends AbstractType
             ->add('adresse', TextType::class)
             ->add('codePostal', NumberType::class)
             ->add('tel', NumberType::class, array('required' => false))
+            ->add('referent', CollectionType::class, array( 'type' => ReferentType::class))
             ->add('save',SubmitType::class, array(
                 'attr' => array('class' => 'myButtonBis'),
             ))
@@ -44,7 +48,7 @@ class EntrepriseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PtitdejBundle\Entity\Entreprise'
+            'data_class' => Entreprise::class
         ));
     }
 

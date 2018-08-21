@@ -29,23 +29,24 @@
 
         {#</div>#}
 
-        {{ form_start(formReferent) }}
+        {#{{ form_start(formReferent) }}#}
 
-        {{ form_label(formReferent.nom,'Votre nom') }}
-        {{ form_widget(formReferent.nom) }}
-        {{ form_errors(formReferent.nom) }}
+        {#{{ form_label(formReferent.nom,'Votre nom') }}#}
+        {#{{ form_widget(formReferent.nom) }}#}
+        {#{{ form_errors(formReferent.nom) }}#}
 
-        {{ form_label(formReferent.mail,'Votre adresse mail') }}
-        {{ form_widget(formReferent.mail) }}
-        {{ form_errors(formReferent.mail) }}
+        {#{{ form_label(formReferent.mail,'Votre adresse mail') }}#}
+        {#{{ form_widget(formReferent.mail) }}#}
+        {#{{ form_errors(formReferent.mail) }}#}
 
-        {{ form_end(formReferent) }}
+        {#{{ form_end(formReferent) }}#}
 
         {{ form_start(formEntreprise) }}
 
-        {{ form_label(formEntreprise.nom,'Le nom de votre entreprise') }}
-        {{ form_widget(formEntreprise.nom) }}
-        {{ form_errors(formEntreprise.nom) }}
+        {{ form_row(formEntreprise.nom) }}
+        {{ form_row(formEntreprise.nomEntreprise) }}
+        {{ form_row(formEntreprise.mail) }}
+
 
 
 

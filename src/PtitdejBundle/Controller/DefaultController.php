@@ -3,6 +3,8 @@
 namespace PtitdejBundle\Controller;
 
 use PtitdejBundle\Entity\Evenement;
+use PtitdejBundle\Form\Model\Prestataire;
+use PtitdejBundle\Form\Type\PrestataireStep1Type;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use PtitdejBundle\Entity\Entreprise;
@@ -21,116 +23,61 @@ class DefaultController extends Controller
 
     public function formulaireEntrepriseAction(Request $request)
     {
-        //on crée un nouvel objet Entreprise
-        $entreprise = new Entreprise();
-        $referent = new Referent();
-        $even = new Evenement();
 
+        $formEntreprise = $this->generateFormEtap1($request,'entreprise');
 
-        //on crée le formulaire avec le service form factory
-//        $formEntreprise = $this->get('form.factory')->create(EntrepriseType::class, $entreprise);
-//        $formEven = $this->get('form.factory')->create(EvenementType::class, $evenement);
-        $formEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
-        $formReferent = $this->createForm(ReferentType::class, $referent);
-        $formEven = $this->createForm(EvenementType::class, $even);
-
-
-        if($request->isMethod('POST')){
-            $formReferent->handleRequest($request);
-            $formEntreprise->handleRequest($request);
-            $formEven->handleRequest($request);
-
-            if($formEntreprise->isSubmitted()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($referent);
-                $em->persist($entreprise);
-
-                $em->flush();
-
-                if ($formEntreprise->get('save')->isClicked()) {
-                    $this->addFlash("info", "votre demande a bien été enregistrée");
-                    return $this->redirectToRoute('ptitdej_homepage');
-                }
-                if ($formEntreprise->get('nextStep')->isClicked()) {
-                    return $this->render('@Ptitdej/Default/formulaireEntrepriseEtape2.html.twig', array(
-                        'formEntreprise' => $formEntreprise->createView(),
-                        'formReferent' => $formReferent ->createView(),
-                        'formEven' => $formEven ->createView()
-                    ));
-                }
-
-//                return new Response('votre demande à bien été envoyée');
-            }
-
-//            if($formEntreprise->isValid() && $formEven->isValid()){
-//                $em = $this->getDoctrine()->getManager();
-//                $em->persist($entreprise);
-//                $em->persist($evenement);
-//                $em->flush();
-//
-//                $this->addFlash("info", "votre demande a bien été enregistrée");
-//                return $this->redirectToRoute('ptitdej_homepage');
-//            }
+        if ($formEntreprise->isSubmitted()) {
+            return $this->redirectToRoute('ptitdej_homepage');
         }
 
         return $this->render('@Ptitdej/Default/formulaireEntreprise.html.twig', array(
             'formEntreprise' => $formEntreprise->createView(),
-            'formReferent' => $formReferent ->createView()
+//            'formReferent' => $formReferent ->createView()
         ));
 
     }
 
-    public function formulairePrestataireAction(Request $request){
+
+    private function generateFormEtap1(Request $request, $source){
         //on crée un nouvel objet Entreprise
         $entreprise = new Entreprise();
         $referent = new Referent();
 
-        $formEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
-        $formReferent = $this->createForm(ReferentType::class, $referent);
+        $formPrestataireStep1 = new Prestataire();
+        $formPrestataireStep1->populate($entreprise, $referent);
 
 
+        //on crée le formulaire avec le service form factory
+        $formEntreprise = $this->createForm(PrestataireStep1Type::class, $formPrestataireStep1);
+        $formEntreprise->handleRequest($request);
 
-        if($request->isMethod('POST')){
-            $formReferent->handleRequest($request);
-            $formEntreprise->handleRequest($request);
+
+        if ($formEntreprise->isSubmitted()) {
+            $entreprise->sinceArray($formPrestataireStep1->extractEntreprise());
+            $referent->sinceArray($formPrestataireStep1->extractReferent());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entreprise->addReferent($referent);
+            $entityManager->persist($referent);
+            $entityManager->persist($entreprise);
+            $entityManager->flush();
+
+        }
+        return $formEntreprise;
+    }
 
 
-            if($formEntreprise->isSubmitted()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($referent);
-                $em->persist($entreprise);
+    public function formulairePrestataireAction(Request $request)
+    {
+        $formEntreprise = $this->generateFormEtap1($request,'prestataire');
 
-                $em->flush();
-
-                if ($formEntreprise->get('save')->isClicked()) {
-                    $this->addFlash("info", "votre demande a bien été enregistrée");
-                    return $this->redirectToRoute('ptitdej_homepage');
-                }
-                if ($formEntreprise->get('nextStep')->isClicked()) {
-                    return $this->render('@Ptitdej/Default/formulairePrestataireEtape2.html.twig', array(
-                        'formEntreprise' => $formEntreprise->createView(),
-                        'formReferent' => $formReferent ->createView(),
-
-                    ));
-                }
-
-//                return new Response('votre demande à bien été envoyée');
-            }
-
-//            if($formEntreprise->isValid() && $formEven->isValid()){
-//                $em = $this->getDoctrine()->getManager();
-//                $em->persist($entreprise);
-//                $em->persist($evenement);
-//                $em->flush();
-//
-//                $this->addFlash("info", "votre demande a bien été enregistrée");
-//                return $this->redirectToRoute('ptitdej_homepage');
-//            }
+        if ($formEntreprise->isSubmitted()) {
+            return $this->redirectToRoute('ptitdej_homepage');
         }
 
         return $this->render('@Ptitdej/Default/formulairePrestataire.html.twig', array(
             'formEntreprise' => $formEntreprise->createView(),
-            'formReferent' => $formReferent ->createView()
+//            'formReferent' => $formReferent ->createView()
         ));
 
     }

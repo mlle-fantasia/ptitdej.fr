@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="entreprise")
  * @ORM\Entity(repositoryClass="PtitdejBundle\Repository\EntrepriseRepository")
  */
-class Entreprise
+class Entreprise extends AbstractEntity
 {
     /**
      * @var int
@@ -204,4 +204,10 @@ class Entreprise
     {
         return $this->referent;
     }
+
+    public function _set($clef, $value)
+    {
+        $this->{$clef} = $value;
+    }
+
 }

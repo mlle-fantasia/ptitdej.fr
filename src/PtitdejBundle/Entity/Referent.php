@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="referent")
  * @ORM\Entity(repositoryClass="PtitdejBundle\Repository\ReferentRepository")
  */
-class Referent
+class Referent extends AbstractEntity
 {
     /**
      * @var int
@@ -92,4 +92,9 @@ class Referent
     {
         return $this->mail;
     }
+    public function _set($clef, $value)
+    {
+        $this->{$clef} = $value;
+    }
+
 }
