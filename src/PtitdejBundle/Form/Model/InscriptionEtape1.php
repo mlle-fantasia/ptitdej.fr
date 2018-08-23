@@ -10,18 +10,42 @@ namespace PtitdejBundle\Form\Model;
 
 use PtitdejBundle\Entity\Entreprise;
 use PtitdejBundle\Entity\Referent;
+use Symfony\Component\Validator\Constraints as Assert;
 
-class Prestataire
+class InscriptionEtape1
 {
 
+    /**
+     * @Assert\NotBlank()
+     * @var string
+     */
     public $nom;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     * @var string
+     */
     public $mail;
+
+    /**
+     * @Assert\NotBlank()
+     * @var string
+     */
     public $nomEntreprise;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\EqualTo("entreprise")
+     * @var string
+     */
+    public $nature;
 
     public function extractEntreprise()
     {
         return [
             'nom' => $this->nomEntreprise,
+            'nature' => $this->nature,
         ];
     }
 
@@ -36,6 +60,7 @@ class Prestataire
     public function populate(Entreprise $entreprise, Referent $referent)
     {
         $this->nomEntreprise = $entreprise->getNom();
+        $this->nature = $entreprise->getNature();
         $this->mail = $referent->getMail();
         $this->nom = $referent->getNom();
     }

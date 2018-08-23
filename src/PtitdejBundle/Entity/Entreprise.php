@@ -33,14 +33,14 @@ class Entreprise extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="codePostal", type="string", length=255)
+     * @ORM\Column(name="codePostal", type="string", length=255, nullable=true)
      */
     private $codePostal;
 
@@ -50,6 +50,13 @@ class Entreprise extends AbstractEntity
      * @ORM\Column(name="tel", type="string", length=255, nullable=true)
      */
     private $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nature", type="string", length=255)
+     */
+    private $nature;
 
     /**
      * @ORM\ManyToMany(targetEntity="PtitdejBundle\Entity\Referent")
@@ -210,4 +217,28 @@ class Entreprise extends AbstractEntity
         $this->{$clef} = $value;
     }
 
+
+    /**
+     * Set nature
+     *
+     * @param string $nature
+     *
+     * @return Entreprise
+     */
+    public function setNature($nature)
+    {
+        $this->nature = $nature;
+
+        return $this;
+    }
+
+    /**
+     * Get nature
+     *
+     * @return string
+     */
+    public function getNature()
+    {
+        return $this->nature;
+    }
 }

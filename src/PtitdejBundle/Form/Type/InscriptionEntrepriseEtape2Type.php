@@ -9,10 +9,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 
-class PrestataireStep1Type extends AbstractType
+class InscriptionEntrepriseEtape2Type extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -20,9 +21,10 @@ class PrestataireStep1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('nomEntreprise', TextType::class)
-            ->add('mail', TextType::class)
+            ->add('date', DateType::class)
+            ->add('lieu', TextType::class)
+            ->add('nbPersonne', NumberType::class)
+            ->add('budget', NumberType::class)
             ->add('save', SubmitType::class, array(
                 'attr' => array('class' => 'myButtonBis'),
             ))

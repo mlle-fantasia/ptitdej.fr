@@ -10,3 +10,7 @@ form_entreprise:
 form_prestataire:
     path:     /formulaire-prestataire
     defaults: { _controller: PtitdejBundle:Default:formulairePrestataire }
+
+form_erreur:
+    path:     /erreur
+    defaults: { _controller: PtitdejBundle:Default:erreur }
