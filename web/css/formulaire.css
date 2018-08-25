@@ -10,10 +10,7 @@
 legend{
     font-size: 26px;
 }
-.dejaInscrit{
-    font-size: 28px;
-    margin: 40px;
-}
+
 .form-label{
     text-align: right;
     margin-right: 10px;
@@ -53,4 +50,15 @@ legend{
 }
 .myButtonBis a:hover {
     text-decoration: none;
+}
+
+.titre{
+    padding: 20px 0;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.source{
+    color: #868686;
+    font-size: 10px;
 }

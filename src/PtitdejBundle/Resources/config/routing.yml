@@ -6,6 +6,9 @@ form_entreprise:
     path:     /formulaire-entreprise
     defaults: { _controller: PtitdejBundle:Default:formulaireEntreprise }
 
+form_entreprise_etape2:
+    path:     /formulaire-entreprise-etape2
+    defaults: { _controller: PtitdejBundle:Default:formulaireEntrepriseEtape2 }
 
 form_prestataire:
     path:     /formulaire-prestataire
@@ -14,3 +17,7 @@ form_prestataire:
 form_erreur:
     path:     /erreur
     defaults: { _controller: PtitdejBundle:Default:erreur }
+
+ptitdej_contact:
+    path:     /qui-sommes-nous
+    defaults:  { _controller: PtitdejBundle:Default:pageContact }

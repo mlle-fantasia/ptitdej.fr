@@ -20,15 +20,16 @@
         {{ form_widget(formEven.nbPersonne) }}
         {{ form_errors(formEven.nbPersonne) }}
 
-        {{ form_label(formEven.budjet,'Le budget aloué à votre ptit dej') }}
-        {{ form_widget(formEven.budjet) }}
-        {{ form_errors(formEven.budjet) }}
+        {{ form_label(formEven.budget,'Le budget aloué à votre ptit dej') }}
+        {{ form_widget(formEven.budget) }}
+        {{ form_errors(formEven.budget) }}
 
 
 
-        {{ form_widget(formEntreprise.previousStep, { 'label': 'Retour' }) }}
-        {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer et continuer plus tard' }) }}
-        {{ form_widget(formEntreprise.nextStep, { 'label': 'Etape suivante' }) }}
+
+        {{ form_widget(formEven.save, { 'label': 'Enregistrer et continuer plus tard' }) }}
+        {{ form_end(formEven) }}
+
 
 
     </fieldset>

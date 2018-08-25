@@ -35,7 +35,6 @@ class InscriptionEtape1
     public $nomEntreprise;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\EqualTo("entreprise")
      * @var string
      */

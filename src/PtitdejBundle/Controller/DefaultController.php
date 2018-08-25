@@ -3,8 +3,12 @@
 namespace PtitdejBundle\Controller;
 
 use PtitdejBundle\Entity\Evenement;
+use PtitdejBundle\Form\Model\InscriptionEntrepriseEtape2;
 use PtitdejBundle\Form\Model\InscriptionEtape1;
 use PtitdejBundle\Form\Type\InscriptionEtape1Type;
+use PtitdejBundle\Form\Type\InscriptionEntrepriseEtape2Type;
+use PtitdejBundle\Form\Model\Contact;
+use PtitdejBundle\Form\Type\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use PtitdejBundle\Entity\Entreprise;
@@ -16,7 +20,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function erreurAction(){
+    public function erreurAction()
+    {
         return $this->render('@Ptitdej/Default/erreur.html.twig');
     }
 
@@ -27,13 +32,15 @@ class DefaultController extends Controller
 
     public function formulaireEntrepriseAction(Request $request)
     {
+        $entreprise = new Entreprise();
+        $referent = new Referent();
 
-        $formEntreprise = $this->generateFormEtap1($request,'entreprise');
+        $formEntreprise = $this->generateFormEtap1($request, 'entreprise', $entreprise, $referent);
 
-        if ($formEntreprise->isSubmitted()) {
-
-            return $this->redirectToRoute('ptitdej_homepage');
-        }
+//        if ($formEntreprise->isSubmitted()) {
+//
+//            $this->formulaireEntrepriseEtape2Action($request, $entreprise, $referent);
+//        }
 
         return $this->render('@Ptitdej/Default/formulaireEntreprise.html.twig', array(
             'formEntreprise' => $formEntreprise->createView(),
@@ -42,36 +49,29 @@ class DefaultController extends Controller
     }
 
 
-    private function generateFormEtap1(Request $request, $source){
-        //on crée un nouvel objet Entreprise
-        $entreprise = new Entreprise();
-        $referent = new Referent();
+    private function generateFormEtap1(Request $request, $source, Entreprise $entreprise, Referent $referent)
+    {
+
         $entreprise->setNature($source);
 
-        $formPrestataireStep1 = new InscriptionEtape1();
-        $formPrestataireStep1->populate($entreprise, $referent);
+        $formStep1 = new InscriptionEtape1();
+        $formStep1->populate($entreprise, $referent);
 
 
         //on crée le formulaire
-        $formEntreprise = $this->createForm(InscriptionEtape1Type::class, $formPrestataireStep1);
-        $formEntreprise->handleRequest($request);
+        $form = $this->createForm(InscriptionEtape1Type::class, $formStep1);
+        $form->handleRequest($request);
 
 
-        if ($formEntreprise->isSubmitted()) {
-
-            // On récupère le service validator
-            $validator = $this->get('validator');
-            // On déclenche la validation sur notre object
-            $listErrors = $validator->validate($entreprise);
-            // Si $listErrors n'est pas vide, on affiche les erreurs
-            if(count($listErrors) > 0) {
-                // $listErrors est un objet, sa méthode __toString permet de lister joliement les erreurs
-                return $this->render('@Ptitdej/Default/erreur.html.twig', array(
-                    'errors' => $listErrors,
-                ));
-            }
-            $entreprise->sinceArray($formPrestataireStep1->extractEntreprise());
-            $referent->sinceArray($formPrestataireStep1->extractReferent());
+        if ($form->isSubmitted() && $form->isValid()) {
+//
+//            if (!$form->isValid()) {
+//                $string = (string) $form->getErrors(true, false);
+//                echo $string;
+//                exit;
+//            }
+            $entreprise->sinceArray($formStep1->extractEntreprise());
+            $referent->sinceArray($formStep1->extractReferent());
 
             $entityManager = $this->getDoctrine()->getManager();
             $entreprise->addReferent($referent);
@@ -79,14 +79,30 @@ class DefaultController extends Controller
             $entityManager->persist($entreprise);
             $entityManager->flush();
 
+
+            $idReferent = $referent->getId();
+            $idEntreprise = $entreprise->getId();
+
+            return $this->redirectToRoute('form_entreprise_etape2', array(
+                    'idReferent' => $idReferent,
+                    'idEntreprise' => $idEntreprise,
+                ));
         }
-        return $formEntreprise;
+
+//        if ($form->isSubmitted() && !$form->get('nature')->isValid()) {
+//            return $this->redirectToRoute('form_erreur');
+//        }
+
+        return $form;
     }
 
 
     public function formulairePrestataireAction(Request $request)
     {
-        $formEntreprise = $this->generateFormEtap1($request,'prestataire');
+        $entreprise = new Entreprise();
+        $referent = new Referent();
+
+        $formEntreprise = $this->generateFormEtap1($request, 'prestataire', $entreprise, $referent);
 
         if ($formEntreprise->isSubmitted()) {
             return $this->redirectToRoute('ptitdej_homepage');
@@ -99,7 +115,56 @@ class DefaultController extends Controller
     }
 
 
-    public function formulaireEntrepriseEtape2Action(Request $request, Entreprise $entreprise, Referent $referent){
+    public function formulaireEntrepriseEtape2Action(Request $request)
+    {
+
+        $evenement = new Evenement();
+
+        $formStep2 = new InscriptionEntrepriseEtape2();
+        $formStep2->populate($evenement);
+
+
+        //on crée le formulaire
+        $formEntreprise2 = $this->createForm(InscriptionEntrepriseEtape2Type::class, $formStep2);
+        $formEntreprise2->handleRequest($request);
+
+        if ($formEntreprise2->isSubmitted() && $formEntreprise2->isValid()) {
+
+
+            $evenement->sinceArray($formStep2->extractEvenement());
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entityManager->persist($evenement);
+
+            $entityManager->flush();
+
+
+        }
+        return $this->render('@Ptitdej/Default/formulaireEntrepriseEtape2.html.twig', array(
+            'formEven' => $formEntreprise2->createView(),
+        ));
+
+    }
+
+
+    public function pageContactAction(Request $request)
+    {
+
+        $formContact = new Contact();
+
+        $formulaireContact = $this->createForm(ContactType::class, $formContact);
+        $formulaireContact->handleRequest($request);
+
+        if ($formulaireContact->isSubmitted()) {
+            return $this->redirectToRoute('ptitdej_homepage');
+        }
+
+        return $this->render('@Ptitdej/Default/contact.html.twig', array(
+            'formContact' => $formulaireContact->createView(),
+        ));
+
 
     }
 

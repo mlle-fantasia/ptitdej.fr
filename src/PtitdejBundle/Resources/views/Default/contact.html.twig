@@ -1,0 +1,45 @@
+{% extends "@Ptitdej/Default/layoutForm.html.twig" %}
+
+{% block formulaire %}
+
+    <p class="titre">Qui sommes-nous ? </p>
+
+    <p>PtitDej.fr est une startup basée dans la région toulonaise et composée de membres passionnés par le web et les petits déjeuners. Plus de 150 entreprises nous ont déjà fait confiance pour
+        organiser leur petit déjeuner
+        d'entreprise et elles ont toutes été enchantées par le service et les résultats obtenus. <br/><br/>Pourquoi il ne faut pas louper le petit déjeuner :<br/>
+        - Le petit-dejeuner nous donne de l’énergie pour la journée <br/>
+        - Il améliore la concentration et la mémoire <br/>
+        - Moins de risques de carences <br/>
+        - Il empêche de grignoter <br/>
+        - Il empêche de prendre du poids <br/>
+        - Il stimule le métabolisme <br/>
+        - Il permet de manger plus sainement <br/></p>
+
+        <p class="source">Source : DocteurBonneBouffe.com, le blog de nutrition et santé version fun. Accédez à l'article entier avec cette URL :<br/> <a>https://docteurbonnebouffe
+            .com/petit-dejeuner-pourquoi-important/</a></p>
+
+
+
+{% endblock %}
+
+{% block footer %}
+    <div class="container-fluid footer form-contact">
+        <div class="container">
+            <p class="gras">Nous contacter : </p>
+
+            {{ form_start(formContact) }}
+
+            {{ form_row(formContact.nom, {'label':'Votre nom'}) }}
+            {{ form_row(formContact.mail, {'label':'Votre adresse mail'}) }}
+            {{ form_row(formContact.message,  {'label':'Votre message'}) }}
+
+            {{ form_widget(formContact.save, { 'label': 'Envoyer' }) }}
+        </div>
+    </div>
+    <div class="container-fluid commentaires">
+        {{ include("PtitdejBundle:Default:carouselCom.html.twig") }}
+    </div>
+    <div class="container-fluid footer">
+        {{ include("PtitdejBundle:Default:footer.html.twig") }}
+    </div>
+{% endblock %}

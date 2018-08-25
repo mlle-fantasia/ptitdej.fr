@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="evenement")
  * @ORM\Entity(repositoryClass="PtitdejBundle\Repository\EvenementRepository")
  */
-class Evenement
+class Evenement extends AbstractEntity
 {
     /**
      * @var int
@@ -251,4 +251,35 @@ class Evenement
     {
         return $this->entreprise;
     }
+
+
+    /**
+     * Set referent
+     *
+     * @param \PtitdejBundle\Entity\Referent $referent
+     *
+     * @return Evenement
+     */
+    public function setReferent(\PtitdejBundle\Entity\Referent $referent)
+    {
+        $this->referent = $referent;
+
+        return $this;
+    }
+
+    /**
+     * Get referent
+     *
+     * @return \PtitdejBundle\Entity\Referent
+     */
+    public function getReferent()
+    {
+        return $this->referent;
+    }
+
+    public function _set($clef, $value)
+    {
+        $this->{$clef} = $value;
+    }
+
 }
