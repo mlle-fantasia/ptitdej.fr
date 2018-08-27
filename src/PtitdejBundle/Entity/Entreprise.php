@@ -60,6 +60,7 @@ class Entreprise extends AbstractEntity
 
     /**
      * @ORM\ManyToMany(targetEntity="PtitdejBundle\Entity\Referent")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $referent;
 

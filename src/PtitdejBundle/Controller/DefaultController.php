@@ -2,18 +2,22 @@
 
 namespace PtitdejBundle\Controller;
 
+use PtitdejBundle\Form\Model\InscriptionPrestataireEtape2;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use PtitdejBundle\Entity\Evenement;
 use PtitdejBundle\Form\Model\InscriptionEntrepriseEtape2;
 use PtitdejBundle\Form\Model\InscriptionEtape1;
 use PtitdejBundle\Form\Type\InscriptionEtape1Type;
 use PtitdejBundle\Form\Type\InscriptionEntrepriseEtape2Type;
+use PtitdejBundle\Form\Type\InscriptionPrestataireEtape2Type;
 use PtitdejBundle\Form\Model\Contact;
 use PtitdejBundle\Form\Type\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use PtitdejBundle\Entity\Entreprise;
 use PtitdejBundle\Entity\Referent;
+use PtitdejBundle\Entity\Offre;
+use PtitdejBundle\Entity\Photo;
 use PtitdejBundle\Form\EntrepriseType;
 use PtitdejBundle\Form\ReferentType;
 use PtitdejBundle\Form\EvenementType;
@@ -69,63 +73,40 @@ class DefaultController extends Controller
         $form = $this->createForm(InscriptionEtape1Type::class, $formStep1);
         $form->handleRequest($request);
 
-
-        if ($form->isSubmitted() && $form->isValid()) {
-//
-//            if (!$form->isValid()) {
-//                $string = (string) $form->getErrors(true, false);
-//                echo $string;
-//                exit;
-//            }
-            $entreprise->sinceArray($formStep1->extractEntreprise());
-            $referent->sinceArray($formStep1->extractReferent());
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entreprise->addReferent($referent);
-            $entityManager->persist($referent);
-            $entityManager->persist($entreprise);
-            $entityManager->flush();
+        if (!$form->isSubmitted() || !$form->isValid()) {
 
             return $form;
-
         }
 
-//        if ($form->isSubmitted() && !$form->get('nature')->isValid()) {
-//            return $this->redirectToRoute('form_erreur');
-//        }
+
+
+        $entreprise->sinceArray($formStep1->extractEntreprise());
+        $referent->sinceArray($formStep1->extractReferent());
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entreprise->addReferent($referent);
+        $entityManager->persist($referent);
+        $entityManager->persist($entreprise);
+        $entityManager->flush();
 
         return $form;
     }
 
-
-    public function formulairePrestataireAction(Request $request)
+    protected function getRepository($className)
     {
-        $entreprise = new Entreprise();
-        $referent = new Referent();
-
-        $formEntreprise = $this->generateFormEtap1($request, 'prestataire', $entreprise, $referent);
-
-        if ($formEntreprise->isSubmitted()) {
-            return $this->redirectToRoute('ptitdej_homepage');
-        }
-
-        return $this->render('@Ptitdej/Default/formulairePrestataire.html.twig', array(
-            'formEntreprise' => $formEntreprise->createView(),
-        ));
-
+        return $repository = $this->getDoctrine()->getManager()->getRepository($className);
     }
-
 
     public function formulaireEntrepriseEtape2Action(Request $request)
     {
 
         $evenement = new Evenement();
 
-        $repository = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Entreprise');
+        $repository = $this->getRepository('PtitdejBundle:Entreprise');
         $entreprise = $repository->find($_GET['idEntreprise']);
         $evenement->setEntreprise($entreprise);
 
-        $repository = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Referent');
+        $repository = $this->getRepository('PtitdejBundle:Referent');
         $referent = $repository->find($_GET['idReferent']);
         $evenement->setReferent($referent);
 
@@ -152,6 +133,79 @@ class DefaultController extends Controller
             'formEven' => $formEntreprise2->createView(),
         ));
 
+    }
+    protected function getErrors($form){
+        $string = (string) $form->getErrors(true, false);
+                echo $string;
+                exit;
+    }
+
+    public function formulairePrestataireAction(Request $request)
+    {
+        $entreprise = new Entreprise();
+        $referent = new Referent();
+
+        $form = $this->generateFormEtap1($request, 'prestataire', $entreprise, $referent);
+
+
+        if ($form->isSubmitted()) {
+
+            $idReferent = $referent->getId();
+            $idEntreprise = $entreprise->getId();
+
+            return $this->redirectToRoute('form_prestataire_etape2', array(
+                'idReferent' => $idReferent,
+                'idEntreprise' => $idEntreprise,
+                'rfrerr' => 4545,
+            ));
+        }
+
+
+        return $this->render('@Ptitdej/Default/formulairePrestataire.html.twig', array(
+            'formEntreprise' => $form->createView(),
+        ));
+
+    }
+
+
+    public function formulairePrestataireEtape2Action(Request $request)
+    {
+        $offre = new Offre();
+        $photo = new Photo();
+
+        $repositoryEntreprise = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Entreprise');
+        $entreprise = $repositoryEntreprise->find($request->get('idEntreprise'));
+        $offre->setEntreprise($entreprise);
+
+        $repositoryReferent = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Referent');
+        $referent = $repositoryReferent->find($request->get('idReferent'));
+
+        $offre->setReferent($referent);
+
+        $etape2 = new InscriptionPrestataireEtape2();
+        $etape2->populate($offre);
+
+        $formPrestaEtape2 = $this->createForm(InscriptionPrestataireEtape2Type::class, $etape2);
+        $formPrestaEtape2->handleRequest($request);
+
+        if ($formPrestaEtape2->isSubmitted() && $formPrestaEtape2->isValid()) {
+
+            $offre->sinceArray($etape2->extractPhoto());
+            $photo->sinceArray($etape2->extractOffre());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($offre);
+            $entityManager->persist($photo);
+            $entityManager->flush();
+
+            $this->addFlash("info", "Votre inscription a bien été validée");
+            return $this->redirectToRoute('ptitdej_homepage');
+
+        }
+
+        return $this->render('@Ptitdej/Default/formulairePrestataireEtape2.html.twig', array(
+            'formOffre' => $formPrestaEtape2->createView(),
+        ));
     }
 
 

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="offre")
  * @ORM\Entity(repositoryClass="PtitdejBundle\Repository\OffreRepository")
  */
-class Offre
+class Offre extends AbstractEntity
 {
     /**
      * @var int
@@ -35,17 +35,19 @@ class Offre
      */
     private $prix;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbPersonne", type="integer")
-     */
-    private $nbPersonne;
 
     /**
      * @ORM\OneToOne(targetEntity="PtitdejBundle\Entity\Photo", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $photo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="detail", type="text")
+     */
+    private $detail;
 
     /**
      * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Entreprise")
@@ -53,6 +55,11 @@ class Offre
      */
     private $entreprise;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Referent")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $referent;
 
     /**
      * Get id
@@ -112,29 +119,6 @@ class Offre
         return $this->prix;
     }
 
-    /**
-     * Set nbPersonne
-     *
-     * @param integer $nbPersonne
-     *
-     * @return Offre
-     */
-    public function setNbPersonne($nbPersonne)
-    {
-        $this->nbPersonne = $nbPersonne;
-
-        return $this;
-    }
-
-    /**
-     * Get nbPersonne
-     *
-     * @return int
-     */
-    public function getNbPersonne()
-    {
-        return $this->nbPersonne;
-    }
 
     /**
      * Set photo
@@ -183,4 +167,59 @@ class Offre
     {
         return $this->entreprise;
     }
+
+    /**
+     * Set detail
+     *
+     * @param string $detail
+     *
+     * @return Offre
+     */
+    public function setDetail($detail)
+    {
+        $this->detail = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Get detail
+     *
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    /**
+     * Set referent
+     *
+     * @param \PtitdejBundle\Entity\Referent $referent
+     *
+     * @return Offre
+     */
+    public function setReferent(\PtitdejBundle\Entity\Referent $referent)
+    {
+        $this->referent = $referent;
+
+        return $this;
+    }
+
+    /**
+     * Get referent
+     *
+     * @return \PtitdejBundle\Entity\Referent
+     */
+    public function getReferent()
+    {
+        return $this->referent;
+    }
+
+
+    public function _set($clef, $value)
+    {
+        $this->{$clef} = $value;
+    }
+
 }

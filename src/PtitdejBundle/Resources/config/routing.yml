@@ -14,6 +14,10 @@ form_prestataire:
     path:     /formulaire-prestataire
     defaults: { _controller: PtitdejBundle:Default:formulairePrestataire }
 
+form_prestataire_etape2:
+    path:     /formulaire-prestataire-etape2
+    defaults:  {_controller: PtitdejBundle:Default:formulairePrestataireEtape2 }
+
 form_erreur:
     path:     /erreur
     defaults: { _controller: PtitdejBundle:Default:erreur }

@@ -35,7 +35,7 @@ class InscriptionEtape1
     public $nomEntreprise;
 
     /**
-     * @Assert\EqualTo("entreprise")
+     * @Assert\NotBlank()
      * @var string
      */
     public $nature;

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="photo")
  * @ORM\Entity(repositoryClass="PtitdejBundle\Repository\PhotoRepository")
  */
-class Photo
+class Photo extends AbstractEntity
 {
     /**
      * @var int
@@ -92,6 +92,11 @@ class Photo
     public function getAlt()
     {
         return $this->alt;
+    }
+
+    public function _set($clef, $value)
+    {
+        $this->{$clef} = $value;
     }
 }
 
