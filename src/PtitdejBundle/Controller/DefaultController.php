@@ -2,6 +2,7 @@
 
 namespace PtitdejBundle\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use PtitdejBundle\Entity\Evenement;
 use PtitdejBundle\Form\Model\InscriptionEntrepriseEtape2;
 use PtitdejBundle\Form\Model\InscriptionEtape1;
@@ -37,10 +38,16 @@ class DefaultController extends Controller
 
         $formEntreprise = $this->generateFormEtap1($request, 'entreprise', $entreprise, $referent);
 
-//        if ($formEntreprise->isSubmitted()) {
-//
-//            $this->formulaireEntrepriseEtape2Action($request, $entreprise, $referent);
-//        }
+        if ($formEntreprise->isSubmitted()) {
+
+            $idReferent = $referent->getId();
+            $idEntreprise = $entreprise->getId();
+
+            return $this->redirectToRoute('form_entreprise_etape2', array(
+                'idReferent' => $idReferent,
+                'idEntreprise' => $idEntreprise,
+            ));
+        }
 
         return $this->render('@Ptitdej/Default/formulaireEntreprise.html.twig', array(
             'formEntreprise' => $formEntreprise->createView(),
@@ -79,14 +86,8 @@ class DefaultController extends Controller
             $entityManager->persist($entreprise);
             $entityManager->flush();
 
+            return $form;
 
-            $idReferent = $referent->getId();
-            $idEntreprise = $entreprise->getId();
-
-            return $this->redirectToRoute('form_entreprise_etape2', array(
-                    'idReferent' => $idReferent,
-                    'idEntreprise' => $idEntreprise,
-                ));
         }
 
 //        if ($form->isSubmitted() && !$form->get('nature')->isValid()) {
@@ -120,6 +121,14 @@ class DefaultController extends Controller
 
         $evenement = new Evenement();
 
+        $repository = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Entreprise');
+        $entreprise = $repository->find($_GET['idEntreprise']);
+        $evenement->setEntreprise($entreprise);
+
+        $repository = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Referent');
+        $referent = $repository->find($_GET['idReferent']);
+        $evenement->setReferent($referent);
+
         $formStep2 = new InscriptionEntrepriseEtape2();
         $formStep2->populate($evenement);
 
@@ -130,17 +139,14 @@ class DefaultController extends Controller
 
         if ($formEntreprise2->isSubmitted() && $formEntreprise2->isValid()) {
 
-
             $evenement->sinceArray($formStep2->extractEvenement());
 
-
             $entityManager = $this->getDoctrine()->getManager();
-
             $entityManager->persist($evenement);
-
             $entityManager->flush();
 
-
+            $this->addFlash("info", "votre demande a bien été enregistrée");
+            return $this->redirectToRoute('ptitdej_homepage');
         }
         return $this->render('@Ptitdej/Default/formulaireEntrepriseEtape2.html.twig', array(
             'formEven' => $formEntreprise2->createView(),

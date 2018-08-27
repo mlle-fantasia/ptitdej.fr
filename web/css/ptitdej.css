@@ -2,6 +2,7 @@
     text-align: center;
     color: white;
 }
+
 h1, .texte, .preuve{
     text-align: center;
     margin-bottom: 40px;
@@ -124,7 +125,16 @@ h1{
     list-style: none;
     padding-left: 0;
 }
+.logo img{
+    width: 150px;
+}
 
+.message-flash{
+    padding: 20px 0;
+    text-align: center;
+    background-image: linear-gradient(#ffc107,#fa511a);
+    color: black;
+    font-size: 23px;}
 
 @media (max-width: 996px) {
     .boutons{

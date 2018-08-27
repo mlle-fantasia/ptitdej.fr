@@ -21,6 +21,11 @@
 </head>
 
 <body>
+{% for message in app.flashes('info') %}
+    <div class="flash-notice message-flash">
+        {{ message }}
+    </div>
+{% endfor %}
 
 <div class="container-fluid footer">
     {#<div class="row">#}
@@ -28,7 +33,7 @@
             {#<div class="row">#}
                 {#<div class="col-md-12">#}
                     <div class="logo">
-                        <p>P'titDej.fr</p>
+                        <img src="{{ asset('images/logo-ptidej.png') }}" alt="logo" />
                     </div>
                     <div class="titre">
                         <h1>Augmenter la productivité de vos salariés <br/> en leur commandant un bon petit dej</h1>

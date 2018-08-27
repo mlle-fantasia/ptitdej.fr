@@ -45,19 +45,20 @@ class Evenement extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="duree", type="string", length=255)
+     * @ORM\Column(name="duree", type="string", length=255, nullable=true)
      */
     private $duree;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="budjet", type="integer")
+     * @ORM\Column(name="budget", type="integer")
      */
-    private $budjet;
+    private $budget;
 
     /**
      * @ORM\OneToOne(targetEntity="PtitdejBundle\Entity\Photo", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $photo;
     
@@ -181,27 +182,27 @@ class Evenement extends AbstractEntity
     }
 
     /**
-     * Set budjet
+     * Set budget
      *
-     * @param integer $budjet
+     * @param integer $budget
      *
      * @return Evenement
      */
-    public function setBudjet($budjet)
+    public function setBudget($budget)
     {
-        $this->budjet = $budjet;
+        $this->budget = $budget;
 
         return $this;
     }
 
     /**
-     * Get budjet
+     * Get budget
      *
      * @return int
      */
-    public function getBudjet()
+    public function getBudget()
     {
-        return $this->budjet;
+        return $this->budget;
     }
 
     /**

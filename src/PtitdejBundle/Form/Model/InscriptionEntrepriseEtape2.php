@@ -55,7 +55,7 @@ class InscriptionEntrepriseEtape2
         $this->date = $even->getDate();
         $this->lieu = $even->getLieu();
         $this->nbPersonne = $even->getNbPersonne();
-        $this->budget = $even->getBudjet();
+        $this->budget = $even->getBudget();
     }
 
 
