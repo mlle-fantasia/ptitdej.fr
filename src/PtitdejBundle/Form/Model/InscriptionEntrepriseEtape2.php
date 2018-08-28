@@ -39,6 +39,12 @@ class InscriptionEntrepriseEtape2
      */
     public $budget;
 
+    /**
+     * @Assert\NotBlank()
+     * @var string
+     */
+    public $type;
+
     public function extractEvenement()
     {
         return [

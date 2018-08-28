@@ -12,19 +12,21 @@
         {{ form_widget(formEven.date) }}
         {{ form_errors(formEven.date) }}
 
-        {{ form_label(formEven.lieu,'Adresse de votre ptit dej') }}
-        {{ form_widget(formEven.lieu) }}
+        {{ form_label(formEven.lieu,'Adresse de votre ptit dej', {'label_attr': {'class': 'label col-md-6' }}) }}
+        {{ form_widget(formEven.lieu, {'attr': {'class': 'col-md-6' }}) }}
         {{ form_errors(formEven.lieu) }}
 
-        {{ form_label(formEven.nbPersonne,'Le nombre de personne prévu') }}
-        {{ form_widget(formEven.nbPersonne) }}
+        {{ form_label(formEven.nbPersonne,'Le nombre de personne prévu', {'label_attr': {'class': 'label col-md-6'}}) }}
+        {{ form_widget(formEven.nbPersonne, {'attr': {'class': 'col-md-4' }}) }}
         {{ form_errors(formEven.nbPersonne) }}
 
-        {{ form_label(formEven.budget,'Le budget aloué à votre ptit dej') }}
-        {{ form_widget(formEven.budget) }}
+        {{ form_label(formEven.budget,'Le budget aloué à votre ptit dej', {'label_attr': {'class': 'label'}}) }}
+        {{ form_widget(formEven.budget, {'attr': {'class': 'col-md-6' }}) }}
         {{ form_errors(formEven.budget) }}
 
-
+        {{ form_label(formEven.type,'Que souhaitez-vous comme type de petit dej ?', {'label_attr': {'class': 'label'}}) }}
+        {{ form_widget(formEven.type) }}
+        {{ form_errors(formEven.type) }}
 
 
         {{ form_widget(formEven.save, { 'label': 'Enregistrer ma demande' }) }}

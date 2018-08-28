@@ -228,4 +228,12 @@ class DefaultController extends Controller
 
     }
 
+    public function ContactAction(Request $request)
+    {
+
+
+
+
+    }
+
 }
