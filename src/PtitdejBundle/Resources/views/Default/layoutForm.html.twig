@@ -18,6 +18,11 @@
 </head>
 
 <body>
+{% for message in app.flashes('info') %}
+    <div class="flash-notice message-flash">
+        {{ message }}
+    </div>
+{% endfor %}
 
 <div class="container-fluid bandeau">
     <div class="logo">

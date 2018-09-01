@@ -19,6 +19,18 @@ class Contact
     public $nom;
 
     /**
+     * @Assert\NotBlank()
+     * @var string
+     */
+    public $prenom;
+
+    /**
+     * @Assert\NotBlank()
+     * @var string
+     */
+    public $objet;
+
+    /**
     * @Assert\NotBlank()
     * @Assert\Email()
     * @var string

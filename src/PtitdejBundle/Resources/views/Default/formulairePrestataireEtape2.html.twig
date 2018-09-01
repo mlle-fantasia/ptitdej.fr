@@ -9,22 +9,28 @@
             <legend>offre n°1 :</legend>
             {{ form_start(formOffre) }}
 
+            {{ form_row(formOffre.offre ) }}
+            <a href="#" id="add_category" class="btn btn-default">Ajouter une offre</a>
 
-            {{ form_label(formOffre.nom, 'Nom de l\'offre', {'label_attr': {'class': ' col-md-6' }} ) }}
-            {{ form_widget(formOffre.nom, {'attr': {'class': 'col-md-6' }}) }}
-            {{ form_errors(formOffre.nom) }}
+            {#{{ form_label(formOffre.nom, 'Nom de l\'offre', {'label_attr': {'class': ' col-md-6' }} ) }}#}
+            {#{{ form_widget(formOffre.nom, {'attr': {'class': 'col-md-6' }}) }}#}
+            {#{{ form_errors(formOffre.nom) }}#}
 
-            {{ form_label(formOffre.prix, 'Prix par personne' , {'label_attr': {'class': 'label col-md-6' }}) }}
-            {{ form_widget(formOffre.prix, {'attr': {'class': 'col-md-6' }}) }}
-            {{ form_errors(formOffre.prix) }}
+            {#{{ form_label(formOffre.prix, 'Prix par personne' , {'label_attr': {'class': 'label col-md-6' }}) }}#}
+            {#{{ form_widget(formOffre.prix, {'attr': {'class': 'col-md-6' }}) }}#}
+            {#{{ form_errors(formOffre.prix) }}#}
 
-            {{ form_label(formOffre.detail, 'Quelques précisions sur l\'offre' , {'label_attr': {'class': 'label col-md-6 ' }}) }}
-            {{ form_widget(formOffre.detail, {'attr': {'class': 'col-md-6 detail-textarea' }}) }}
-            {{ form_errors(formOffre.detail) }}
+            {#{{ form_label(formOffre.type, 'Type de petit dej' , {'label_attr': {'class': 'label col-md-6' }}) }}#}
+            {#{{ form_widget(formOffre.type, {'attr': {'class': 'col-md-6' }}) }}#}
+            {#{{ form_errors(formOffre.type) }}#}
 
-            {{ form_label(formOffre.photo, 'Une photo pour cette offre' , {'label_attr': {'class': 'label col-md-6' }}) }}
-            {{ form_widget(formOffre.photo, {'attr': {'class': 'form-control col-md-6' }}) }}
-            {{ form_errors(formOffre.photo) }}
+            {#{{ form_label(formOffre.detail, 'Quelques précisions sur l\'offre' , {'label_attr': {'class': 'label col-md-6 ' }}) }}#}
+            {#{{ form_widget(formOffre.detail, {'attr': {'class': 'col-md-6 detail-textarea' }}) }}#}
+            {#{{ form_errors(formOffre.detail) }}#}
+
+            {#{{ form_label(formOffre.photo, 'Une photo pour cette offre' , {'label_attr': {'class': 'label col-md-6' }}) }}#}
+            {#{{ form_widget(formOffre.photo, {'attr': {'class': 'form-control col-md-6' }}) }}#}
+            {#{{ form_errors(formOffre.photo) }}#}
         </fieldset>
 
 

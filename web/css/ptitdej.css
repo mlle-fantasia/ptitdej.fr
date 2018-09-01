@@ -115,6 +115,9 @@ h1{
     background-color: rgb(21, 13, 10);
     color: #fff;
 }
+.logo-reseau-sociaux img{
+    max-width: 32px;
+}
 .footer img{
     width: 100%;
 }
@@ -152,4 +155,7 @@ h1{
     h1{
         font-size: 20px;
     }
+    .avatar img{
+         width: 20%;
+     }
 }

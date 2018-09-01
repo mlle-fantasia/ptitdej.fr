@@ -25,3 +25,7 @@ form_erreur:
 ptitdej_contact:
     path:     /qui-sommes-nous
     defaults:  { _controller: PtitdejBundle:Default:pageContact }
+
+form_contact:
+    path:     /message-envoye
+    defaults:  { _controller: PtitdejBundle:Default:contact }

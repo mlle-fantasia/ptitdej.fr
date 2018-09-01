@@ -7,12 +7,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
-class ContactType extends AbstractType
+class OffreType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -21,13 +21,11 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('objet', TextType::class)
-            ->add('mail', TextType::class)
-            ->add('message', TextareaType::class)
-            ->add('save', SubmitType::class, array(
-                'attr' => array('class' => 'myButtonBis'),
-            ))
+            ->add('prix', NumberType::class)
+            ->add('type', TextType::class)
+            ->add('photo', FileType::class)
+            ->add('detail', TextareaType::class)
+
             ->getForm();
     }
 

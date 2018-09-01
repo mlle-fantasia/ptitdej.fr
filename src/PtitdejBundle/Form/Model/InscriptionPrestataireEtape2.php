@@ -33,6 +33,12 @@ class InscriptionPrestataireEtape2
         public $detail;
 
         /**
+         * @Assert\NotBlank()
+         *
+         */
+        public $type;
+
+        /**
         *@Assert\File(mimeTypes={ "image/jpeg" })
         *
         */
@@ -50,6 +56,7 @@ class InscriptionPrestataireEtape2
             return [
                 'nom' => $this->nom,
                 'prix' => $this->prix,
+                'type' => $this->type,
                 'detail' => $this->detail,
             ];
         }
@@ -59,8 +66,10 @@ class InscriptionPrestataireEtape2
         {
             $this->nom = $offre->getNom();
             $this->prix = $offre->getPrix();
+            $this->type = $offre->getType();
             $this->photo = $offre->getPhoto();
             $this->detail = $offre->getDetail();
+
         }
 
 }

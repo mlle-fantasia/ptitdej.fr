@@ -50,6 +50,13 @@ class Offre extends AbstractEntity
     private $detail;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PtitdejBundle\Entity\Entreprise")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -222,4 +229,28 @@ class Offre extends AbstractEntity
         $this->{$clef} = $value;
     }
 
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Offre
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

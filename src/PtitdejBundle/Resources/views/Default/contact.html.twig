@@ -1,5 +1,7 @@
 {% extends "@Ptitdej/Default/layoutForm.html.twig" %}
 
+
+
 {% block formulaire %}
 
     <p class="titre">Qui sommes-nous ? </p>
@@ -18,21 +20,48 @@
         <p class="source">Source : DocteurBonneBouffe.com, le blog de nutrition et santé version fun. Accédez à l'article entier avec cette URL :<br/> <a>https://docteurbonnebouffe
             .com/petit-dejeuner-pourquoi-important/</a></p>
 
-
-
 {% endblock %}
+
 
 {% block footer %}
     <div class="container-fluid footer form-contact">
         <div class="container">
             <p class="gras">Nous contacter : </p>
+            <div class="row">
+                <div class="col-md-6">
 
             {{ form_start(formContact) }}
 
-            {{ form_row(formContact.nom, {'label':'Votre nom'}) }}
-            {{ form_row(formContact.mail, {'label':'Votre adresse mail'}) }}
-            {{ form_row(formContact.message,  {'label':'Votre message'}) }}
+            {{ form_label(formContact.nom, 'Votre nom', {'label_attr': {'class': 'label' }} ) }}
+            {{ form_widget(formContact.nom, {'attr': {'class': '' }}) }}
+            {{ form_errors(formContact.nom) }}
+                </div>
+                <div class="col-md-6">
+            {{ form_label(formContact.prenom, 'Votre prenom', {'label_attr': {'class': 'label' }} ) }}
+            {{ form_widget(formContact.prenom, {'attr': {'class': '' }}) }}
+            {{ form_errors(formContact.prenom) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
 
+                    {{ form_label(formContact.mail, 'Votre adresse mail', {'label_attr': {'class': 'label' }} ) }}
+                    {{ form_widget(formContact.mail, {'attr': {'class': '' }}) }}
+                    {{ form_errors(formContact.mail) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(formContact.objet, 'L\'objet de votre message', {'label_attr': {'class': 'label' }} ) }}
+                    {{ form_widget(formContact.objet, {'attr': {'class': '' }}) }}
+                    {{ form_errors(formContact.objet) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+            {{ form_label(formContact.message, 'Votre message', {'label_attr': {'class': 'label col-md-12' }} ) }}
+            {{ form_widget(formContact.message, {'attr': {'class': 'col-md-12 detail-textarea' }}) }}
+            {{ form_errors(formContact.message) }}
+                </div>
+            </div>
             {{ form_widget(formContact.save, { 'label': 'Envoyer' }) }}
         </div>
     </div>

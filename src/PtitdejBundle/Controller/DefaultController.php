@@ -190,8 +190,8 @@ class DefaultController extends Controller
 
         if ($formPrestaEtape2->isSubmitted() && $formPrestaEtape2->isValid()) {
 
-            $offre->sinceArray($etape2->extractPhoto());
-            $photo->sinceArray($etape2->extractOffre());
+            $offre->sinceArray($etape2->extractOffre());
+            $photo->sinceArray($etape2->extractPhoto());
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($offre);
@@ -217,8 +217,49 @@ class DefaultController extends Controller
         $formulaireContact = $this->createForm(ContactType::class, $formContact);
         $formulaireContact->handleRequest($request);
 
-        if ($formulaireContact->isSubmitted()) {
+        if ($formulaireContact->isSubmitted() && $formulaireContact->isValid()) {
+            if($request->isMethod('POST')){
+
+                $transport = (new Swift_SmtpTransport('smtp.example.org', 25))
+                    ->setUsername('your username')
+                    ->setPassword('your password')
+                ;
+
+                $request = Request::createFromGlobals();
+
+                $nom = $formulaireContact['nom']->getData();
+                $prenom = $formulaireContact['prenom']->getData();
+                $objet = $formulaireContact['objet']->getData();
+                $mail = $formulaireContact['mail']->getData();
+                $messageClient = $formulaireContact['message']->getData();
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($objet)
+                    ->setForm('send@emple.com')
+                    ->setTo('marinafront2@gmail.com')
+                    ->setCharset('utf-8')
+                    ->setContentType('text/html')
+                    ->setBody($this->container
+                                ->get('templating')
+                                ->render('@Ptitdej/Default/SwiftMailer/email.html.twig',
+                                      array('nom' => $nom,
+                                            'mail'=>$mail,
+                                            'message'=>$messageClient,
+                                            'prenom' => $prenom,
+                                            'objet' => $objet)
+                                        ));
+
+                $this->get('mailer')->send($message);
+
+                $this->addFlash("info", "Votre message a bien été envoyé");
+                return $this->redirectToRoute('ptitdej_contact');
+
+            }
+            $this->addFlash("info", "erreur");
             return $this->redirectToRoute('ptitdej_homepage');
+
+
+
         }
 
         return $this->render('@Ptitdej/Default/contact.html.twig', array(
@@ -230,7 +271,6 @@ class DefaultController extends Controller
 
     public function ContactAction(Request $request)
     {
-
 
 
 
