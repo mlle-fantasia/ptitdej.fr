@@ -8,7 +8,7 @@
     {#{% stylesheets 'src/ptitdejbundle/public/css/ptitdej.css' %}#}
     {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />#}
     {#{% endstylesheets %}#}
-
+    {#<script src="{{ asset('js/test.js')  }}"></script>#}
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     {% endblock %}
 </head>
 
-<body>
+<body >
 {% for message in app.flashes('info') %}
     <div class="flash-notice message-flash">
         {{ message }}
@@ -38,7 +38,6 @@
 
 {% block footer %}
 {% endblock %}
-
 
 </body>
 </html>

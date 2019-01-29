@@ -92,23 +92,47 @@ h1{
     font-size: 22px;
     font-style: normal;
 }
-
-.carousel-inner {
+.carouselCom-titre{
+    text-align: center;
+    margin: 30px 0;
+}
+.carousel-inner img{
+    width: 20%;
     margin: auto;
 }
-.carousel-texte{
+.carousel-text{
     color: black;
+    text-align: center;
 }
-.carousel-item{
-    padding: 40px 0;
+.indicateursCom{
+    position: relative;
 }
-.carousel-control-next, .carousel-control-prev{
-    color:#310d0d;
+.indicateursCom li{
+    background-color: #150d0a;
 }
-.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
-    opacity: 1;
-    color:#310d0d;
+.indicateursCom .active{
+    background-color: #fa4b19;
 }
+.precedent:after
+{
+    content: '<';
+    font-size: 40px;
+    color: #150d0a;
+}
+.suivant:after
+{
+    content: '>';
+    font-size: 40px;
+    color: #150d0a;
+}
+.carousel-control-next-icon:hover
+{
+    color: #fa4b19;
+}
+/*.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {*/
+    /*opacity: 1;*/
+    /*color:#310d0d;*/
+/*}*/
 
 .footer{
     padding: 30px 0 40px 0;

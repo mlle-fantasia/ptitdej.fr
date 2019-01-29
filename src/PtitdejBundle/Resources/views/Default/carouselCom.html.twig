@@ -1,66 +1,90 @@
 <div class="commentaire">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <h3 class="carouselCom-titre">Les derniers avis : </h3>
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="{{ asset('images/tache-cafe-monstre-01.png') }}" class="img-fluid" width="75"  alt="New York">
-                            </div>
-                            <div class="col-10 carousel-caption carousel-texte">
-                                Derniers avis : <br> <em>petit déjeuner organisé à générix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce
-                                    site
-                                    &gt;&gt; </strong>
-                            </div>
-                        </div>
-
-
-
-
+                <img src="{{ asset('images/imagesCom/avatar1.jpg') }}" class="d-block " alt="avatar commentaire">
+                <p class="carousel-text"><em>petit déjeuner organisé à générix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site >></strong></p>
             </div>
-
             <div class="carousel-item">
-
-
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="{{ asset('images/tache-cafe-monstre-01.png') }}" class="img-fluid" width="75" alt="New York">
-                            </div>
-                            <div class="col-10 carousel-caption carousel-texte">
-                                Derniers avis : <br> <em>petklmklmklmkix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site
-                                    &gt;&gt; </strong>
-                            </div>
-                        </div>
-
+                <img src="{{ asset('images/imagesCom/avatar2.jpg') }}" class="d-block" alt="avatar commentaire">
+                <p class="carousel-text"><em>petit déjeuner organisé à générix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site >></strong></p>
             </div>
-
             <div class="carousel-item">
-
-
-                        <div class="row">
-                            <div class="col-2">
-                                <img src="{{ asset('images/tache-cafe-monstre-01.png') }}" class="img-fluid" width="75" alt="New York">
-                            </div>
-                            <div class="col-10 carousel-caption carousel-texte">
-                                Derniers avis : <br> <em>petzerzrezrzreznérix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site
-                                    &gt;&gt; </strong>
-                            </div>
-                        </div>
-
-
-
+                <img src="{{ asset('images/imagesCom/avatar3.jpg') }}" class="d-block " alt="avatar commentaire">
+                <p class="carousel-text"><em>petit déjeuner organisé à générix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site >></strong></p>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev precedent" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <a class="carousel-control-next suivant" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+        <ol class="carousel-indicators indicateursCom">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
     </div>
+
+
+    {#<div id="myCarousel" class="carousel slide" data-ride="carousel">#}
+        {#<div class="carousel-inner">#}
+            {#<div class="carousel-item active">#}
+                        {#<div class="row">#}
+                            {#<div class="col-12" >#}
+
+                                {#<div class="carousel-caption carousel-texte">#}
+                                    {#<img src="{{ asset('images/imagesCom/avatar1.jpg') }}" class="img-fluid" width="75"  alt="New York">#}
+                                    {#<p><em>petit déjeuner organisé à générix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce#}
+                                        {#site#}
+                                            {#&gt;&gt; </strong></p>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+            {#</div>#}
+
+            {#<div class="carousel-item">#}
+
+
+                        {#<div class="row">#}
+                            {#<div class="col-10 carousel-caption carousel-texte">#}
+                                {#<img src="{{ asset('images/imagesCom/avatar2.jpg') }}" class="img-fluid" width="75" alt="New York">#}
+                                 {#<em>petklmklmklmkix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site#}
+                                    {#&gt;&gt; </strong>#}
+                            {#</div>#}
+                        {#</div>#}
+            {#</div>#}
+
+            {#<div class="carousel-item">#}
+
+
+                        {#<div class="row">#}
+                            {#<div class="col-2">#}
+                                {#<img src="{{ asset('images/imagesCom/avatar3.jpg') }}" class="img-fluid" width="75" alt="New York">#}
+                            {#</div>#}
+                            {#<div class="col-10 carousel-caption carousel-texte">#}
+                                 {#<em>petzerzrezrzreznérix pour 50 personnes</em> <br> <strong>&lt;&lt; petit dej parfait pour motiver les troupes ! je recomande ce site#}
+                                    {#&gt;&gt; </strong>#}
+                            {#</div>#}
+                        {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">#}
+            {#<span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+            {#<span class="sr-only">Previous</span>#}
+        {#</a>#}
+        {#<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">#}
+            {#<span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+            {#<span class="sr-only">Next</span>#}
+        {#</a>#}
+    {#</div>#}
 
 
 

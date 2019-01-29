@@ -29,6 +29,34 @@
         {{ form_end(formEntreprise) }}
     </fieldset>
 
+    <a href="{{ path('ptitdej_homepage') }}" onclick="return activer()">retour</a>
+    <div id="test" onclick="even()">
+    salut
+    </div>
+    <div id="notesVue">
+    </div>
+    <a href="#" onClick="notes.ajoutItem();return false">Ajouter</a>
+    <script src="{{ asset('js/test.js')  }}"></script>
+
+    <script>
+        qcm.ajouterQuestion("quel est l'age du capitaine ? ", 20,30,40,50);
+        qcm.ajouterQuestion("quel est la taille du capitaine en cm ? ", 170,180,185,190);
+        function afficher2(){
+            var parent = document.getElementById("qcm");
+            var d = document.createElement("div");
+            var t = document.createTextNode("quel est l'age du capitaine ? ");
+            d.appendChild(t);
+            parent.appendChild(d);
+            console.log("re")
+        }
+        console.log(qcm.ajouterQuestion)
+    </script>
+
+    <div onload="qcm.demarrer()">
+        <div id="qcm"> le qcm :
+        </div>
+        <input type="submit" value="valider" onclick="afficher2()">
+    </div>
 
 
 {% endblock %}

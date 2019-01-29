@@ -48,21 +48,21 @@
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/photodej8.JPG') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/petits-dejeuners9.jpg') }}" class="img-fluid" alt="" /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise52.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/entreprise32.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise6.JPG') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise3.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>
+                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise11.jpg') }}" class="img-fluid" alt="" /></div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-8 intro"><img src="{{ asset('images/entreprise4.jpg') }}" class="img-fluid" alt="" /></div>
+                <div class="col-md-8 intro"><img src="{{ asset('images/imagesPtiDej/entreprise7.jpg') }}" class="img-fluid" alt="" /></div>
                 <div class="col-md-4 intro d-none d-md-block">
-                    <img src="{{ asset('images/imagesdej6.jpg') }}" class="img-fluid" alt="" />
-                    <img src="{{ asset('images/photodej7.jpg') }}" class="img-fluid" alt="" />
+                    <img src="{{ asset('images/imagesPtiDej/entreprise8.jpg') }}" class="img-fluid" alt="" />
+                    <img src="{{ asset('images/imagesPtiDej/entreprise12.jpg') }}" class="img-fluid" alt="" />
                 </div>
                 {#<div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>#}
             </div>
@@ -176,13 +176,12 @@
 
 
 
-<div class="container-fluid commentaires">
+<div class="container">
     {{ include("PtitdejBundle:Default:carouselCom.html.twig") }}
 </div>
 <div class="container-fluid footer">
     {{ include("PtitdejBundle:Default:footer.html.twig") }}
 </div>
-
 
 
 
@@ -193,7 +192,6 @@
 <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
          crossorigin="anonymous"></script>
 
-
-
+<script src="{{ asset('js/test.js')  }}"></script>
 </body>
 </html>
