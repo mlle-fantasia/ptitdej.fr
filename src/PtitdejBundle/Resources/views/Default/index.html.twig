@@ -27,50 +27,64 @@
     </div>
 {% endfor %}
 
-<div class="container-fluid footer">
+{#<div class="container-fluid footer">#}
     {#<div class="row">#}
         {#<div class="container">#}
             {#<div class="row">#}
                 {#<div class="col-md-12">#}
-                    <div class="logo">
-                        <img src="{{ asset('images/logo-ptidej.png') }}" alt="logo" />
-                    </div>
-                    <div class="titre">
-                        <h1>Augmenter la productivité de vos salariés <br/> en leur commandant un bon petit dej</h1>
-                    </div>
+                    {#<div class="logo">#}
+                        {#<img src="{{ asset('images/logo-ptidej.png') }}" alt="logo" />#}
+                    {#</div>#}
+                    {#<div class="titre">#}
+                        {#<h1>Augmenter la productivité de vos salariés <br/> en leur commandant un bon petit dej</h1>#}
+                    {#</div>#}
 
                 {#</div>#}
             {#</div>#}
         {#</div>#}
     {#</div>#}
-</div>
-<div class="container ">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise6.JPG') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise3.jpg') }}" class="img-fluid" alt="" /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>
-                <div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise11.jpg') }}" class="img-fluid" alt="" /></div>
-            </div>
-        </div>
+{#</div>#}
+{#<div class="container ">#}
+    {#<div class="row">#}
+        {#<div class="col-md-6">#}
+            {#<div class="row">#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise6.JPG') }}" class="img-fluid" alt=""  /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise3.jpg') }}" class="img-fluid" alt="" /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise11.jpg') }}" class="img-fluid" alt="" /></div>#}
+            {#</div>#}
+        {#</div>#}
 
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8 intro"><img src="{{ asset('images/imagesPtiDej/entreprise7.jpg') }}" class="img-fluid" alt="" /></div>
-                <div class="col-md-4 intro d-none d-md-block">
-                    <img src="{{ asset('images/imagesPtiDej/entreprise8.jpg') }}" class="img-fluid" alt="" />
-                    <img src="{{ asset('images/imagesPtiDej/entreprise12.jpg') }}" class="img-fluid" alt="" />
-                </div>
+        {#<div class="col-md-6">#}
+            {#<div class="row">#}
+                {#<div class="col-md-8 intro"><img src="{{ asset('images/imagesPtiDej/entreprise7.jpg') }}" class="img-fluid" alt="" /></div>#}
+                {#<div class="col-md-4 intro d-none d-md-block">#}
+                    {#<img src="{{ asset('images/imagesPtiDej/entreprise8.jpg') }}" class="img-fluid" alt="" />#}
+                    {#<img src="{{ asset('images/imagesPtiDej/entreprise12.jpg') }}" class="img-fluid" alt="" />#}
+                {#</div>#}
                 {#<div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>#}
+            {#</div>#}
+        {#</div>#}
+
+    {#</div>#}
+{#</div>#}
+<div class="container-fluid header">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="logo" />
+                </div>
+                <div class="titre">
+                    <h1>Augmenter la productivité de vos salariés <br/> en leur offrant un bon petit dej</h1>
+                </div>
+
             </div>
         </div>
-
     </div>
-</div>
-<div class="container-fluid footer">
 
             <div class="preuve">
                 <p>Notre réseau compte déjà plus de 150 entreprises</p>
@@ -118,7 +132,7 @@
 
 
 
-<div class="container-fluid couleur">
+<div class="container-fluid couleur fond2">
     <p class="gras"> Vous êtes une entreprise à la recherche d'un prestataire de petits déjeuner ? </p>
     <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
           entreprises :<br/> organisez votre petit dej
@@ -167,7 +181,7 @@
 
 
 
-<div class="container-fluid couleur">
+<div class="container-fluid couleur fond3">
     <p class="gras"> Vous êtes un prestataire de petits déjeuner ? Inscrivez-vous ici : </p>
     <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
         prestataires : <br/>inscription gratuite

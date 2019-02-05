@@ -3,7 +3,6 @@
 namespace PtitdejBundle\Controller;
 
 use PtitdejBundle\Form\Model\InscriptionPrestataireEtape2;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use PtitdejBundle\Entity\Evenement;
 use PtitdejBundle\Form\Model\InscriptionEntrepriseEtape2;
 use PtitdejBundle\Form\Model\InscriptionEtape1;
@@ -18,10 +17,7 @@ use PtitdejBundle\Entity\Entreprise;
 use PtitdejBundle\Entity\Referent;
 use PtitdejBundle\Entity\Offre;
 use PtitdejBundle\Entity\Photo;
-use PtitdejBundle\Form\EntrepriseType;
-use PtitdejBundle\Form\ReferentType;
-use PtitdejBundle\Form\EvenementType;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class DefaultController extends Controller
 {
@@ -156,7 +152,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('form_prestataire_etape2', array(
                 'idReferent' => $idReferent,
                 'idEntreprise' => $idEntreprise,
-                'rfrerr' => 4545,
+                //'rfrerr' => 4545,
             ));
         }
 
@@ -179,7 +175,6 @@ class DefaultController extends Controller
 
         $repositoryReferent = $this->getDoctrine()->getManager()->getRepository('PtitdejBundle:Referent');
         $referent = $repositoryReferent->find($request->get('idReferent'));
-
         $offre->setReferent($referent);
 
         $etape2 = new InscriptionPrestataireEtape2();
