@@ -1,5 +1,9 @@
 .bandeau{
-    background-color: rgb(21, 13, 10);
+    background-image: url("../images/imagesPtiDej/entreprise13fond.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 .bandeau .logo{
     padding: 20px;
