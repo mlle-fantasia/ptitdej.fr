@@ -132,6 +132,7 @@ h1{
 .carousel-text{
     color: black;
     text-align: center;
+    padding: 0 150px;
 }
 .indicateursCom{
     position: relative;
@@ -162,10 +163,6 @@ h1{
 {
     color: #fa4b19;
 }
-/*.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {*/
-    /*opacity: 1;*/
-    /*color:#310d0d;*/
-/*}*/
 
 .footer{
     padding: 30px 0 40px 0;
@@ -228,6 +225,9 @@ h1{
     .headerTexte, .preuve{
         padding: 0 30px;
     }
+    .btn-header .myButton{
+        width: 80%;
+    }
     .boutons{
         padding: 0 100px 50px 100px;
     }
@@ -244,12 +244,16 @@ h1{
     .prestataireTexteExplication{
         margin-left: 0;
     }
+    .carousel-text{
+        padding: 0 80px;
+    }
 }
 
 @media (max-width: 576px) {
     .headerTexte{
         font-size: 17px;
         padding: 0 15px;
+        height: 150px;
     }
     .boutons{
         padding: 0 50px 50px 50px;
