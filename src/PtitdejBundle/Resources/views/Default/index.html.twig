@@ -89,22 +89,22 @@
             <div class="preuve">
                 <p>Notre réseau compte déjà plus de 150 entreprises</p>
             </div>
-            <div class="texte ">
-                <p>Pour tout événement (worshop, réunion, rencontre ou simple journée de travail...) il est bon de bien commencer la journée !</br>
-                    <strong>Ptidej.fr</strong> vous mets en relation avec des prestaires des petit déjeuner dans votre région qui répondrons à vos besoin en respectant votre budget.
+            <div class="headerTexte ">
+                <p>Pour tout événement (workshop, réunion, rencontre ou simple journée de travail...) il est bon de bien commencer la journée !</br>
+                    <strong>Ptidej.fr</strong> vous mets en relation avec des prestataires de petits déjeuners dans votre région qui répondront à vos besoins en respectant votre budget.
                 </p>
             </div>
             <div class="container boutons">
                 <div class="">
-                    <a class="col-md-5 col-xs-6 float-right btn myButton " href="{{ path('form_entreprise') }}">
-                        entreprises :<br/> organisez votre petit dej
+                    <a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_entreprise') }}">
+                        Organisez un petit dej
                     </a>
                 </div>
-                <div class="">
-                    <a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_prestataire') }}">
-                        prestataires : <br/>inscription gratuite
-                    </a>
-                </div>
+                {#<div class="">#}
+                    {#<a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_prestataire') }}">#}
+                        {#prestataires : <br/>inscription gratuite#}
+                    {#</a>#}
+                {#</div>#}
             </div>
 
 
@@ -133,9 +133,10 @@
 
 
 <div class="container-fluid couleur fond2">
-    <p class="gras"> Vous êtes une entreprise à la recherche d'un prestataire de petits déjeuner ? </p>
+    <p class="gras"> Entreprise ! </p>
+    <p> Vous êtes souhaitez offrir un petit déjeuner à votre équipe ? </p>
     <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
-          entreprises :<br/> organisez votre petit dej
+           Organisez votre petit dej ici !
     </a>
 </div>
 
@@ -182,9 +183,10 @@
 
 
 <div class="container-fluid couleur fond3">
-    <p class="gras"> Vous êtes un prestataire de petits déjeuner ? Inscrivez-vous ici : </p>
+    <p class="gras"> Prestataires !  </p>
+    <p>Vous vendez des petits déjeuner ? Inscrivez-vous ici : </p>
     <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
-        prestataires : <br/>inscription gratuite
+        Inscription gratuite
     </a>
 </div>
 

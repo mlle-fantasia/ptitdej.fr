@@ -13,10 +13,13 @@
     background-position: bottom;
 }
 
-h1, .texte, .preuve{
+h1, .headerTexte, .preuve{
     text-align: center;
     margin-bottom: 40px;
     color: #fff;
+}
+.headerTexte{
+    font-size: 20px;
 }
 h1{
     margin-top: 20px;
@@ -25,7 +28,8 @@ h1{
     margin-bottom: 10px;
 }
 .boutons{
-    padding: 0 200px 50px 200px;
+    padding: 10px 200px 50px 200px;
+    text-align: center;
 }
 .intro{
     padding: 0;
@@ -36,16 +40,17 @@ h1{
 }
 
 .myButton {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa4619), color-stop(1, #ffb726));
-    background:-moz-linear-gradient(top, #fa4619 5%, #ffb726 100%);
-    background:-webkit-linear-gradient(top, #fa4619 5%, #ffb726 100%);
-    background:-o-linear-gradient(top, #fa4619 5%, #ffb726 100%);
-    background:-ms-linear-gradient(top, #fa4619 5%, #ffb726 100%);
-    background:linear-gradient(to bottom, #fa4619 5%, #ffb726 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa4619', endColorstr='#ffb726',GradientType=0);
-    background-color:#fa4619;
-    -moz-border-radius:14px;
-    -webkit-border-radius:14px;
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa4619), color-stop(1, #ffb726));*/
+    /*background:-moz-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
+    /*background:-webkit-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
+    /*background:-o-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
+    /*background:-ms-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
+    /*background:linear-gradient(to bottom, #fa4619 5%, #ffb726 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa4619', endColorstr='#ffb726',GradientType=0);*/
+    background-color:#fa7e19;
+    box-shadow: #481404 3px 3px 5px 0px;
+    -moz-border-radius:40px;
+    -webkit-border-radius:40px;
     border-radius:40px;
     border:1px solid #ff2424;
     display:inline-block;
@@ -56,18 +61,18 @@ h1{
     font-weight:bold;
     padding:9px 6px;
     text-decoration:none;
-    text-shadow:0 1px 0 #ff6666;
+    /*text-shadow:0 1px 0 #ff6666;*/
 }
 .myButton:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffb726), color-stop(1, #fa4619));
-    background:-moz-linear-gradient(top, #ffb726 5%, #fa4619 100%);
-    background:-webkit-linear-gradient(top, #ffb726 5%, #fa4619 100%);
-    background:-o-linear-gradient(top, #ffb726 5%, #fa4619 100%);
-    background:-ms-linear-gradient(top, #ffb726 5%, #fa4619 100%);
-    background:linear-gradient(to bottom, #ffb726 5%, #fa4619 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb726', endColorstr='#fa4619',GradientType=0);
-    background-color:#ffb726;
-    color:#fff;
+    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffb726), color-stop(1, #fa4619));*/
+    /*background:-moz-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
+    /*background:-webkit-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
+    /*background:-o-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
+    /*background:-ms-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
+    /*background:linear-gradient(to bottom, #ffb726 5%, #fa4619 100%);*/
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb726', endColorstr='#fa4619',GradientType=0);*/
+    background-color:#ffb007;
+    color:#4e2202;
 }
 .myButton:active {
     position:relative;
@@ -94,7 +99,10 @@ h1{
 .couleur{
     background-color: rgb(21, 13, 10);
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px;
+    font-size: 26px;
+    font-style: normal;
+    color: #fff;
 }
 .explications{
     margin: 40px 0 40px 0;
@@ -106,10 +114,8 @@ h1{
     text-align: right;
 }
 .gras{
-    font-size: 22px;
-    font-style: normal;
-    color: #fff;
-    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 .plus{
     font-size: 22px;
@@ -132,9 +138,13 @@ h1{
 }
 .indicateursCom li{
     background-color: #150d0a;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 6px;
 }
 .indicateursCom .active{
-    background-color: #fa4b19;
+    background-color: #fa7e19;
 }
 .precedent:after
 {
