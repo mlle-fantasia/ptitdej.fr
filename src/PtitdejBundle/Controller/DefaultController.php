@@ -31,12 +31,36 @@ class DefaultController extends Controller
         return $this->render('@Ptitdej/Default/index.html.twig');
     }
 
+    public function formulairePartenaireAction(Request $request)
+    {
+        $entreprise = new Entreprise();
+        $referent = new Referent();
+
+        $formEntreprise = $this->generateFormEtap1($request, 'partenaire',$entreprise, $referent);
+
+        if ($formEntreprise->isSubmitted()) {
+
+            $idReferent = $referent->getId();
+            $idEntreprise = $entreprise->getId();
+
+            return $this->redirectToRoute('form_entreprise_etape2', array(
+                'idReferent' => $idReferent,
+                'idEntreprise' => $idEntreprise,
+            ));
+        }
+
+        return $this->render('@Ptitdej/Default/formulairePartenaire.html.twig', array(
+            'formEntreprise' => $formEntreprise->createView(),
+        ));
+
+    }
+
     public function formulaireEntrepriseAction(Request $request)
     {
         $entreprise = new Entreprise();
         $referent = new Referent();
 
-        $formEntreprise = $this->generateFormEtap1($request, 'entreprise', $entreprise, $referent);
+        $formEntreprise = $this->generateFormEtap1($request, 'entreprise',$entreprise, $referent);
 
         if ($formEntreprise->isSubmitted()) {
 
@@ -56,10 +80,14 @@ class DefaultController extends Controller
     }
 
 
-    private function generateFormEtap1(Request $request, $source, Entreprise $entreprise, Referent $referent)
+    private function generateFormEtap1(Request $request, $nature, Entreprise $entreprise, Referent $referent)
     {
-
-        $entreprise->setNature($source);
+        if($nature == 'entreprise'){
+            $entreprise -> setNature('entreprise');
+        }
+        if($nature == 'prestataire'){
+            $entreprise -> setNature('prestataire');
+        }
 
         $formStep1 = new InscriptionEtape1();
         $formStep1->populate($entreprise, $referent);
@@ -70,11 +98,8 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
-
             return $form;
         }
-
-
 
         $entreprise->sinceArray($formStep1->extractEntreprise());
         $referent->sinceArray($formStep1->extractReferent());
@@ -122,7 +147,7 @@ class DefaultController extends Controller
             $entityManager->persist($evenement);
             $entityManager->flush();
 
-            $this->addFlash("info", "votre demande a bien été enregistrée");
+            $this->addFlash("info", "Votre demande a bien été enregistrée");
             return $this->redirectToRoute('ptitdej_homepage');
         }
         return $this->render('@Ptitdej/Default/formulaireEntrepriseEtape2.html.twig', array(

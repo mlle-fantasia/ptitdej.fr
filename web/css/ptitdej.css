@@ -197,9 +197,16 @@ h1{
 .message-flash{
     padding: 20px 0;
     text-align: center;
-    background-image: linear-gradient(#ffc107,#fa511a);
-    color: black;
-    font-size: 23px;}
+    background-image: linear-gradient(#ff8508,#fa511a);
+    color: #fff;
+    font-size: 23px;
+    position: absolute;
+    width: 100%;
+    border-radius: 40px;
+    top: 20px;
+    border: solid 1px #f73d00;
+    box-shadow: 1px 2px 4px 1px #331702;
+}
 
 @media (max-width: 1265px) {
     .header{

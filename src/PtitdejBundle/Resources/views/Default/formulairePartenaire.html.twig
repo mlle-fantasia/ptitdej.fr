@@ -2,11 +2,9 @@
 
 {% block formulaire %}
 
-
     <fieldset class="entreprise">
-        <legend>Prestataire de petit déjeuner : Vos renseignements</legend>
+        <legend>Vos renseignements</legend>
         <hr>
-
 
         {{ form_start(formEntreprise) }}
 
@@ -22,16 +20,18 @@
         {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-6' }}) }}
         {{ form_errors(formEntreprise.nomEntreprise) }}
 
-        <div style="display:none">
-            {{ form_row(formEntreprise.nature) }}
-        </div>
+        {{ form_label(formEntreprise.nature,'La nature de votre entreprise' , {'label_attr': {'class': 'label col-md-6' }}) }}
+        {{ form_widget(formEntreprise.nature, {'attr': {'class': 'col-md-6' }}) }}
+        {{ form_errors(formEntreprise.nature) }}
+
+        {{ form_row(formEntreprise.nature) }}
 
         {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
 
         {{ form_end(formEntreprise) }}
-    </fieldset>
 
-    <a href="{{ path('ptitdej_homepage') }}" >retour</a>
+    </fieldset>
 
 
 {% endblock %}
+

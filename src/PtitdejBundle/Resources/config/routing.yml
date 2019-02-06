@@ -2,6 +2,10 @@ ptitdej_homepage:
     path:     /
     defaults: { _controller: PtitdejBundle:Default:index }
 
+form_partenaire:
+    path:     /formulaire-partenaire
+    defaults: { _controller: PtitdejBundle:Default:formulairePartenaire }
+
 form_entreprise:
     path:     /formulaire-entreprise
     defaults: { _controller: PtitdejBundle:Default:formulaireEntreprise }

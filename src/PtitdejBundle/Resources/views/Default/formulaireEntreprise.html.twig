@@ -4,7 +4,7 @@
 
 
     <fieldset class="entreprise">
-        <legend>Vos renseignements</legend>
+        <legend>Entreprise p'ti dejivore : Vos renseignements</legend>
         <hr>
 
 
@@ -23,7 +23,9 @@
         {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-6' }}) }}
         {{ form_errors(formEntreprise.nomEntreprise) }}
 
-        {{ form_row(formEntreprise.nature) }}
+        <div style="display:none">
+            {{ form_row(formEntreprise.nature) }}
+        </div>
 
         {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
 
