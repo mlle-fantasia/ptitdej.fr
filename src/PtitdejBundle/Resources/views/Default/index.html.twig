@@ -44,7 +44,7 @@
                 </p>
             </div>
             <div class="container boutons">
-                <div class="">
+                <div class="btn-header">
                     <a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_entreprise') }}">
                         Organisez un petit dej
                     </a>
@@ -54,17 +54,17 @@
 
         <div class="container">
             <div class="row tasseDessin">
-                <div class="col-md-4 col-xs-12 ">
+                <div class="col-md-4 col-xs-12 col-une-tasse">
                     <img src="{{ asset('images/tasse1.png') }}" class="img-fluid" alt="" />
                     <h3>Gagnez du temps !</h3>
                     <p>Vous n'aurez pas à prospécter des heures pour trouver un prestataire à la hauteur, nous nous en chargeons pour vous.</p>
                 </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12 col-une-tasse">
                     <img src="{{ asset('images/tasse2.png') }}" class="img-fluid" alt="" />
                     <h3>Renforcez l'esprit d'équipe !</h3>
                     <p>Un bon petit déjeuner assure la bonne humeur de tous les employers et crée du lien social au sein de l'équipe.</p>
                 </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12 col-une-tasse">
                     <img src="{{ asset('images/tasse3.png') }}" class="img-fluid" alt="" />
                     <h3>Augmentez l'efficacité au travail !</h3>
                     <p>Un petit déjeuner fait toujours plaisir et renforce la motivation des employers pour vous le rendre dans leur travail.</p>
@@ -74,10 +74,10 @@
 
 
 
-        <div class="container-fluid couleur fond2">
+        <div class="container-fluid couleur fondEntre">
             <p class="gras"> Entreprise ! </p>
             <p> Vous êtes souhaitez offrir un petit déjeuner à votre équipe ? </p>
-            <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
+            <a class="col-md-5 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
                    Organisez votre petit dej
             </a>
         </div>
@@ -86,42 +86,41 @@
 
         <div class="container">
             <div class="row explications">
-                <div class="col-md-2 offset-md-2 col-xs-3 col-sm-2 offset-sm-1">
+                <div class="col-md-2 col-xs-3 col-sm-3">
                     <div class="tassethe">
                         <img src="{{ asset('images/the.png') }}" class="img-fluid " alt="image d'une tasse de thé" />
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-8">
+                <div class="col-md-10 col-sm-9">
                     <div class="explicationsTexte ">
                         <p> <em class="plus"> Entreprises,</em> vous voulez organiser un petit déjeuner dans votre entreprise, vous avez raison, pour tout événement (worshop, réunion, rencontre...) il est bon
                             de bien
                             commencer la journée ! Décrivez-nous votre événement dans le cours formulaire et nous nous occupons de vous trouver le prestataire qui répondra à vos attentes et à votre budget. Il vous contactera ensuite directement.</p>
                     </div>
                 </div>
-                <div class="tassexs d-md-none">
+                <div class="tassexs d-md-none d-sm-none">
                     <div class="col-xs-3">
                         <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
                     </div>
                 </div>
-                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-1">
+                <div class="col-md-10 col-sm-9 ">
                     <div class="explicationsTexte prestataireTexteExplication">
                         <p> <em class="plus"> Prestataires,</em> vous êtes un professionel du petit déjeuner ? Inscrivez-vous gratuitement sur notre site et profitez de notre reseau d'entreprises.
                             Décrivez-nous vos différentes offres, nous selectionnerons les clients qui vous correspondent.</p>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="tassechoco d-none d-md-block">
+                <div class="col-md-2 col-sm-3">
+                    <div class="tassechoco d-none d-md-block d-sm-block">
                         <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
-                        {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de café">#}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid couleur fond3">
+        <div class="container-fluid couleur fondPresta">
             <p class="gras"> Prestataires !  </p>
             <p>Vous vendez des petits déjeuner ? Inscrivez-vous ici : </p>
-            <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
+            <a class="col-md-5 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
                 Inscription gratuite
             </a>
         </div>
@@ -142,6 +141,6 @@
         <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                  crossorigin="anonymous"></script>
         <script src="{{ asset('js/test.js')  }}"></script>
-    
+
     </body>
 </html>

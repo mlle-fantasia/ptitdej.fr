@@ -40,15 +40,8 @@ h1{
 }
 
 .myButton {
-    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa4619), color-stop(1, #ffb726));*/
-    /*background:-moz-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
-    /*background:-webkit-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
-    /*background:-o-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
-    /*background:-ms-linear-gradient(top, #fa4619 5%, #ffb726 100%);*/
-    /*background:linear-gradient(to bottom, #fa4619 5%, #ffb726 100%);*/
-    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa4619', endColorstr='#ffb726',GradientType=0);*/
     background-color:#fa7e19;
-    box-shadow: #481404 3px 3px 5px 0px;
+    box-shadow: #481404 3px 3px 5px 0;
     -moz-border-radius:40px;
     -webkit-border-radius:40px;
     border-radius:40px;
@@ -61,16 +54,8 @@ h1{
     font-weight:bold;
     padding:9px 6px;
     text-decoration:none;
-    /*text-shadow:0 1px 0 #ff6666;*/
 }
 .myButton:hover {
-    /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffb726), color-stop(1, #fa4619));*/
-    /*background:-moz-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
-    /*background:-webkit-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
-    /*background:-o-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
-    /*background:-ms-linear-gradient(top, #ffb726 5%, #fa4619 100%);*/
-    /*background:linear-gradient(to bottom, #ffb726 5%, #fa4619 100%);*/
-    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb726', endColorstr='#fa4619',GradientType=0);*/
     background-color:#ffb007;
     color:#4e2202;
 }
@@ -78,14 +63,20 @@ h1{
     position:relative;
     top:1px;
 }
+.btn-header .myButton{
+    width: 50%;
+}
+.couleur .myButton{
+    width: 310px;
+}
 
-.fond2{
+.fondEntre{
     background-image: url("../images/imagesPtiDej/entreprise8fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.fond3{
+.fondPresta{
     background-image: url("../images/imagesPtiDej/entreprise2fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -109,9 +100,14 @@ h1{
 }
 .explicationsTexte{
     color: black;
+    text-align: justify;
+    margin-right: 186px;
 }
 .prestataireTexteExplication{
-    text-align: right;
+    direction:rtl;
+    text-align:justify;
+    margin-right: 0;
+    margin-left: 186px;
 }
 .gras{
     font-size: 30px;
@@ -180,10 +176,11 @@ h1{
     background-attachment: fixed;
 }
 .logo-reseau-sociaux img{
-    max-width: 32px;
+    height: 32px;
+    width: 32px;
 }
-.footer img{
-    width: 100%;
+.logo-reseau-sociaux {
+    margin-bottom: 20px;
 }
 .footer a{
     color: #fff;
@@ -191,6 +188,7 @@ h1{
 .footer ul{
     list-style: none;
     padding-left: 0;
+    margin-bottom: 20px;
 }
 .logo img{
     width: 150px;
@@ -206,23 +204,96 @@ h1{
     color: black;
     font-size: 23px;}
 
-@media (max-width: 996px) {
+@media (max-width: 1265px) {
+    .header{
+        padding-top: 70px;
+        padding-bottom: 40px;
+    }
+}
+@media (max-width: 1200px) {
+    .explicationsTexte{
+        margin-right: 153px;
+    }
+    .prestataireTexteExplication{
+        margin-right: 0;
+        margin-left: 153px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header{
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    .headerTexte, .preuve{
+        padding: 0 30px;
+    }
     .boutons{
         padding: 0 100px 50px 100px;
     }
     h1{
         font-size: 28px;
     }
+    .tasseDessin{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .explicationsTexte{
+        margin-right: 0;
+    }
+    .prestataireTexteExplication{
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 576px) {
+    .headerTexte{
+        font-size: 17px;
+        padding: 0 15px;
+    }
     .boutons{
         padding: 0 50px 50px 50px;
     }
     h1{
         font-size: 20px;
     }
+    .couleur .myButton{
+        width: 80%;
+    }
+    .tasseDessin{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .col-une-tasse{
+        padding-top: 20px;
+    }
+    .tassethe{
+        text-align: center;
+    }
+    .tassexs{
+        margin:auto;
+        padding-top: 15px;
+    }
+    .prestataireTexteExplication{
+        direction: inherit;
+    }
+    .carousel-text{
+        padding: 0 60px;
+    }
     .avatar img{
          width: 20%;
      }
+}
+@media (max-width: 394px) {
+    .header .myButton{
+        width: 100%;
+        font-size: 19px;
+    }
+    .couleur .myButton{
+        width: 100%;
+        font-size: 18px;
+    }
+    .couleur{
+        font-size: 17px;
+    }
 }
