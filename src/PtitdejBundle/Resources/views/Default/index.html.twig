@@ -1,90 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
-    {% block stylesheets %}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">
-        <link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    {% endblock %}
+        <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">
+            <link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        {% endblock %}
 
-    {#{% block stylesheets %}#}
-        {# On charge le CSS de bootstrap depuis le site directement #}
-        {#<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">#}
-        {#<link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">#}
-        {#<link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">#}
-    {#{% endblock %}#}
-</head>
+    </head>
 
-<body>
-{% for message in app.flashes('info') %}
-    <div class="flash-notice message-flash">
-        {{ message }}
-    </div>
-{% endfor %}
-
-{#<div class="container-fluid footer">#}
-    {#<div class="row">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<div class="col-md-12">#}
-                    {#<div class="logo">#}
-                        {#<img src="{{ asset('images/logo-ptidej.png') }}" alt="logo" />#}
-                    {#</div>#}
-                    {#<div class="titre">#}
-                        {#<h1>Augmenter la productivité de vos salariés <br/> en leur commandant un bon petit dej</h1>#}
-                    {#</div>#}
-
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
-{#<div class="container ">#}
-    {#<div class="row">#}
-        {#<div class="col-md-6">#}
-            {#<div class="row">#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise1.jpg') }}" class="img-fluid" alt=""  /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise2.jpg') }}" class="img-fluid" alt=""  /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise6.JPG') }}" class="img-fluid" alt=""  /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise3.jpg') }}" class="img-fluid" alt="" /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise5.jpg') }}" class="img-fluid" alt=""  /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block"><img src="{{ asset('images/imagesPtiDej/entreprise11.jpg') }}" class="img-fluid" alt="" /></div>#}
-            {#</div>#}
-        {#</div>#}
-
-        {#<div class="col-md-6">#}
-            {#<div class="row">#}
-                {#<div class="col-md-8 intro"><img src="{{ asset('images/imagesPtiDej/entreprise7.jpg') }}" class="img-fluid" alt="" /></div>#}
-                {#<div class="col-md-4 intro d-none d-md-block">#}
-                    {#<img src="{{ asset('images/imagesPtiDej/entreprise8.jpg') }}" class="img-fluid" alt="" />#}
-                    {#<img src="{{ asset('images/imagesPtiDej/entreprise12.jpg') }}" class="img-fluid" alt="" />#}
-                {#</div>#}
-                {#<div class="col-md-4 intro"><img src="{{ asset('images/entreprise1.jpg') }}" alt="" /></div>#}
-            {#</div>#}
-        {#</div>#}
-
-    {#</div>#}
-{#</div>#}
-<div class="container-fluid header">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="logo" />
-                </div>
-                <div class="titre">
-                    <h1>Un petit déjeuner = Plus de productivité</h1>
-                </div>
-
+    <body>
+        {% for message in app.flashes('info') %}
+            <div class="flash-notice message-flash">
+                {{ message }}
             </div>
-        </div>
-    </div>
+        {% endfor %}
+
+        <div class="container-fluid header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo">
+                            <img src="{{ asset('images/logo.png') }}" alt="logo" />
+                        </div>
+                        <div class="titre">
+                            <h1>Un petit déjeuner = Plus de productivité</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="preuve">
                 <p>153 partenaires inscrits = 225 petits déjeuner organisés</p>
@@ -100,114 +49,99 @@
                         Organisez un petit dej
                     </a>
                 </div>
-                {#<div class="">#}
-                    {#<a class="col-md-5 col-xs-6 btn myButton " href="{{ path('form_prestataire') }}">#}
-                        {#prestataires : <br/>inscription gratuite#}
-                    {#</a>#}
-                {#</div>#}
             </div>
+        </div>{#fin cotainer-fluid header#}
 
-
-</div>
-<div class="container">
-    <div class="row tasseDessin">
-        <div class="col-md-4 col-xs-12 ">
-            <img src="{{ asset('images/tasse1.png') }}" class="img-fluid" alt="" />
-            <h3>Gagnez du temps !</h3>
-            <p>Vous n'aurez pas à prospécter des heures pour trouver un prestataire à la hauteur, nous nous en chargeons pour vous.</p>
-        </div>
-        <div class="col-md-4 col-xs-12">
-            <img src="{{ asset('images/tasse2.png') }}" class="img-fluid" alt="" />
-            <h3>Renforcez l'esprit d'équipe !</h3>
-            <p>Un bon petit déjeuner assure la bonne humeur de tous les employers et crée du lien social au sein de l'équipe.</p>
-        </div>
-        <div class="col-md-4 col-xs-12">
-            <img src="{{ asset('images/tasse3.png') }}" class="img-fluid" alt="" />
-            <h3>Augmentez l'efficacité au travail !</h3>
-            <p>Un petit déjeuner fait toujours plaisir et renforce la motivation des employers pour vous le rendre dans leur travail.</p>
-        </div>
-
-    </div>
-</div>
-
-
-
-<div class="container-fluid couleur fond2">
-    <p class="gras"> Entreprise ! </p>
-    <p> Vous êtes souhaitez offrir un petit déjeuner à votre équipe ? </p>
-    <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
-           Organisez votre petit dej
-    </a>
-</div>
-
-
-
-<div class="container">
-    <div class="row explications">
-        <div class="col-md-2 offset-md-2 col-xs-3 col-sm-2 offset-sm-1">
-            <div class="tassethe">
-                <img src="{{ asset('images/the.png') }}" class="img-fluid " alt="image d'une tasse de thé" />
-                {#<img src="images/thé.png" class="imgflottantexs" alt="image d'une tasse de thé ">#}
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-8">
-            <div class="explicationsTexte ">
-                <p> <em class="plus"> Entreprises,</em> vous voulez organiser un petit déjeuner dans votre entreprise, vous avez raison, pour tout événement (worshop, réunion, rencontre...) il est bon
-                    de bien
-                    commencer la journée ! Décrivez-nous votre événement dans le cours formulaire et nous nous occupons de vous trouver le prestataire qui répondra à vos attentes et à votre budget. Il vous contactera ensuite directement.</p>
+        <div class="container">
+            <div class="row tasseDessin">
+                <div class="col-md-4 col-xs-12 ">
+                    <img src="{{ asset('images/tasse1.png') }}" class="img-fluid" alt="" />
+                    <h3>Gagnez du temps !</h3>
+                    <p>Vous n'aurez pas à prospécter des heures pour trouver un prestataire à la hauteur, nous nous en chargeons pour vous.</p>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <img src="{{ asset('images/tasse2.png') }}" class="img-fluid" alt="" />
+                    <h3>Renforcez l'esprit d'équipe !</h3>
+                    <p>Un bon petit déjeuner assure la bonne humeur de tous les employers et crée du lien social au sein de l'équipe.</p>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <img src="{{ asset('images/tasse3.png') }}" class="img-fluid" alt="" />
+                    <h3>Augmentez l'efficacité au travail !</h3>
+                    <p>Un petit déjeuner fait toujours plaisir et renforce la motivation des employers pour vous le rendre dans leur travail.</p>
+                </div>
             </div>
         </div>
 
-        <div class="tassexs d-md-none">
-            <div class="col-xs-3">
-                <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
-                {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de chocolat">#}
-            </div>
-        </div>
-        <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-1">
-            <div class="explicationsTexte prestataireTexteExplication">
-                <p> <em class="plus"> Prestataires,</em> vous êtes un professionel du petit déjeuner ? Inscrivez-vous gratuitement sur notre site et profitez de notre reseau d'entreprises.
-                    Décrivez-nous vos différentes offres, nous selectionnerons les clients qui vous correspondent.</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="tassechoco d-none d-md-block">
-                <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
-                {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de café">#}
-            </div>
+
+
+        <div class="container-fluid couleur fond2">
+            <p class="gras"> Entreprise ! </p>
+            <p> Vous êtes souhaitez offrir un petit déjeuner à votre équipe ? </p>
+            <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_entreprise') }}">
+                   Organisez votre petit dej
+            </a>
         </div>
 
-    </div>
-</div>
+
+
+        <div class="container">
+            <div class="row explications">
+                <div class="col-md-2 offset-md-2 col-xs-3 col-sm-2 offset-sm-1">
+                    <div class="tassethe">
+                        <img src="{{ asset('images/the.png') }}" class="img-fluid " alt="image d'une tasse de thé" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <div class="explicationsTexte ">
+                        <p> <em class="plus"> Entreprises,</em> vous voulez organiser un petit déjeuner dans votre entreprise, vous avez raison, pour tout événement (worshop, réunion, rencontre...) il est bon
+                            de bien
+                            commencer la journée ! Décrivez-nous votre événement dans le cours formulaire et nous nous occupons de vous trouver le prestataire qui répondra à vos attentes et à votre budget. Il vous contactera ensuite directement.</p>
+                    </div>
+                </div>
+                <div class="tassexs d-md-none">
+                    <div class="col-xs-3">
+                        <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-1">
+                    <div class="explicationsTexte prestataireTexteExplication">
+                        <p> <em class="plus"> Prestataires,</em> vous êtes un professionel du petit déjeuner ? Inscrivez-vous gratuitement sur notre site et profitez de notre reseau d'entreprises.
+                            Décrivez-nous vos différentes offres, nous selectionnerons les clients qui vous correspondent.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="tassechoco d-none d-md-block">
+                        <img src="{{ asset('images/chocolat.png') }}" class="img-fluid" alt="image d'une tasse de chocolat" />
+                        {#<img src="images/chocolat.png" class="imgflottantexs" alt="image d'une tasse de café">#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid couleur fond3">
+            <p class="gras"> Prestataires !  </p>
+            <p>Vous vendez des petits déjeuner ? Inscrivez-vous ici : </p>
+            <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
+                Inscription gratuite
+            </a>
+        </div>
+
+        <div class="container">
+            {{ include("PtitdejBundle:Default:carouselCom.html.twig") }}
+        </div>
+
+        <div class="container-fluid footer">
+            {{ include("PtitdejBundle:Default:footer.html.twig") }}
+        </div>
 
 
 
-<div class="container-fluid couleur fond3">
-    <p class="gras"> Prestataires !  </p>
-    <p>Vous vendez des petits déjeuner ? Inscrivez-vous ici : </p>
-    <a class="col-md-2 btn myButton btn-lg" href="{{ path('form_prestataire') }}">
-        Inscription gratuite
-    </a>
-</div>
-
-
-
-<div class="container">
-    {{ include("PtitdejBundle:Default:carouselCom.html.twig") }}
-</div>
-<div class="container-fluid footer">
-    {{ include("PtitdejBundle:Default:footer.html.twig") }}
-</div>
-
-
-
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-<script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-         crossorigin="anonymous"></script>
-
-<script src="{{ asset('js/test.js')  }}"></script>
-</body>
+        <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                 crossorigin="anonymous"></script>
+        <script src="{{ asset('js/test.js')  }}"></script>
+    
+    </body>
 </html>
