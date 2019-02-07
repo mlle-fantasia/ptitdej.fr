@@ -6,29 +6,37 @@
     <fieldset class="entreprise">
         <legend>Prestataire de petit déjeuner : Vos renseignements</legend>
         <hr>
+        <div class="row">
+            <div class="col-md-6">
 
+                {{ form_start(formEntreprise) }}
 
-        {{ form_start(formEntreprise) }}
+                {{ form_label(formEntreprise.nom,'Votre nom' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.nom) }}
+                {{ form_errors(formEntreprise.nom) }}
 
-        {{ form_label(formEntreprise.nom,'Votre nom' , {'label_attr': {'class': 'label col-md-6' }}) }}
-        {{ form_widget(formEntreprise.nom, {'attr': {'class': 'col-md-6' }}) }}
-        {{ form_errors(formEntreprise.nom) }}
+                {{ form_label(formEntreprise.mail,'Votre adresse mail' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.mail) }}
+                {{ form_errors(formEntreprise.mail) }}
 
-        {{ form_label(formEntreprise.mail,'Votre adresse mail' , {'label_attr': {'class': 'label col-md-6' }}) }}
-        {{ form_widget(formEntreprise.mail, {'attr': {'class': 'col-md-6' }}) }}
-        {{ form_errors(formEntreprise.mail) }}
+                {{ form_label(formEntreprise.nomEntreprise,'Le nom de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.nomEntreprise) }}
+                {{ form_errors(formEntreprise.nomEntreprise) }}
 
-        {{ form_label(formEntreprise.nomEntreprise,'Le nom de votre entreprise' , {'label_attr': {'class': 'label col-md-6' }}) }}
-        {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-6' }}) }}
-        {{ form_errors(formEntreprise.nomEntreprise) }}
+                <div style="display:none">
+                    {{ form_row(formEntreprise.nature) }}
+                </div>
 
-        <div style="display:none">
-            {{ form_row(formEntreprise.nature) }}
+                {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
+
+                {{ form_end(formEntreprise) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ include("PtitdejBundle:Default:detailsFormPrestataire.html.twig") }}
+            </div>
+
         </div>
-
-        {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
-
-        {{ form_end(formEntreprise) }}
     </fieldset>
 
     <a href="{{ path('ptitdej_homepage') }}" >retour</a>

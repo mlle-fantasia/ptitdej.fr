@@ -17,7 +17,9 @@ h1, .headerTexte, .preuve{
     text-align: center;
     margin-bottom: 40px;
     color: #fff;
+    padding: 0 30px;
 }
+
 .headerTexte{
     font-size: 20px;
 }
@@ -228,9 +230,6 @@ h1{
     .header{
         padding-top: 60px;
         padding-bottom: 30px;
-    }
-    .headerTexte, .preuve{
-        padding: 0 30px;
     }
     .btn-header .myButton{
         width: 80%;
