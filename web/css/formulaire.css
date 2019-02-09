@@ -9,7 +9,7 @@
     padding: 20px;
 }
 .entreprise{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 legend{
     font-size: 26px;
@@ -76,6 +76,12 @@ legend{
     border: solid 1px #ced4da;
     border-radius: 4px;
     padding: 7px 0 0 5px;
+}
+.etapesTitre{
+    font-size: 20px;
+}
+.detailsFormTitre{
+    margin-top: 50px;
 }
 .detailsFormImage img{
     width: 100%;

@@ -1,10 +1,12 @@
 {% extends "@Ptitdej/Default/layoutForm.html.twig" %}
 
 {% block formulaire %}
-
+    <div class="row">
+        {{ include("PtitdejBundle:Default:titreFormEntreprise.html.twig") }}
+    </div>
 
     <fieldset class="entreprise">
-        <legend>Entreprise p'ti dejivore : Vos renseignements</legend>
+        <legend>Vos renseignements</legend>
         <hr>
         <div class="row">
             <div class="col-md-6">
