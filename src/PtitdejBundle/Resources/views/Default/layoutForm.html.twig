@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
-    {#{% stylesheets 'src/ptitdejbundle/public/css/ptitdej.css' %}#}
-    {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />#}
-    {#{% endstylesheets %}#}
-    {#<script src="{{ asset('js/test.js')  }}"></script>#}
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -18,26 +14,26 @@
 </head>
 
 <body >
-{% for message in app.flashes('info') %}
-    <div class="flash-notice message-flash">
-        {{ message }}
+    {% for message in app.flashes('info') %}
+        <div class="flash-notice message-flash">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="container-fluid bandeau">
+        <div class="logo">
+            <a href="{{ path('ptitdej_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="logo" /></a>
+        </div>
     </div>
-{% endfor %}
 
-<div class="container-fluid bandeau">
-    <div class="logo">
-        <a href="{{ path('ptitdej_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="logo" /></a>
+    <div class="container">
+        {% block formulaire %}
+        {% endblock %}
     </div>
-</div>
-
-<div class="container">
-{% block formulaire %}
-{% endblock %}
-</div>
 
 
-{% block footer %}
-{% endblock %}
+    {% block footer %}
+    {% endblock %}
 
 </body>
 </html>

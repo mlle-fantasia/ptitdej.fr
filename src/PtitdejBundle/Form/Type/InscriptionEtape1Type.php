@@ -2,14 +2,12 @@
 
 namespace PtitdejBundle\Form\Type;
 
-use PtitdejBundle\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 
 class InscriptionEtape1Type extends AbstractType
@@ -21,7 +19,7 @@ class InscriptionEtape1Type extends AbstractType
     {
         $builder
             ->add('nom', TextType::class)
-            ->add('mail', TextType::class)
+            ->add('mail', EmailType::class)
             ->add('nomEntreprise', TextType::class)
             ->add('nature', ChoiceType::class,[
                 'choices' =>[
