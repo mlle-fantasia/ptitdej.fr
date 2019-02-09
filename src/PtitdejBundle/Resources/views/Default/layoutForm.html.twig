@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
-    {% block stylesheets %}
-        {# On charge le CSS de bootstrap depuis le site directement #}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">
-        <link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">
-    {% endblock %}
-</head>
-
-<body >
-    {% for message in app.flashes('info') %}
-        <div class="flash-notice message-flash">
-            {{ message }}
-        </div>
-    {% endfor %}
-
-    <div class="container-fluid bandeau">
-        <div class="logo">
-            <a href="{{ path('ptitdej_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="logo" /></a>
-        </div>
-    </div>
-
-    <div class="container">
-        {% block formulaire %}
+        <title>{% block title %}Ptitdej.fr - petit dejeuner d'entreprise{% endblock %}</title>
+        {% block stylesheets %}
+            {# On charge le CSS de bootstrap depuis le site directement #}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('css/ptitdej.css')  }}">
+            <link rel="stylesheet" href="{{ asset('css/formulaire.css')  }}">
         {% endblock %}
-    </div>
+    </head>
+
+    <body>
+        {% for message in app.flashes('info') %}
+            <div class="flash-notice message-flash">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <div class="container-fluid bandeau">
+            <div class="logo">
+                <a href="{{ path('ptitdej_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="logo" /></a>
+            </div>
+        </div>
+
+        <div class="container">
+            {% block formulaire %}
+            {% endblock %}
+        </div>
 
 
-    {% block footer %}
-    {% endblock %}
+        {% block footer %}
+        {% endblock %}
 
-</body>
+        <script src="{{ asset('js/jquery.min.js')  }}"></script>
+        <script src="{{ asset('js/ptidej.js')  }}"></script>
+    </body>
 </html>

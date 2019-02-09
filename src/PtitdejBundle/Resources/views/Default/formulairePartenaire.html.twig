@@ -2,43 +2,53 @@
 
 {% block formulaire %}
 
-        <fieldset class="entreprise">
-            <legend>Vos renseignements</legend>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
+    <div class="row detailsDynamique entrepriseDynamique">
+        {{ include("PtitdejBundle:Default:titreFormEntreprise.html.twig") }}
+    </div>
+    <div class="row detailsDynamique prestataireDynamique">
+        {{ include("PtitdejBundle:Default:titreFormPrestataire.html.twig") }}
+    </div>
 
-                    {{ form_start(formEntreprise) }}
+    <fieldset class="entreprise">
+        <legend>Vos renseignements</legend>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
 
-                    {{ form_label(formEntreprise.nature,'La nature de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
-                    {{ form_widget(formEntreprise.nature, {'attr': {'class': 'col-md-11'}}) }}
-                    {{ form_errors(formEntreprise.nature) }}
+                {{ form_start(formEntreprise) }}
 
-                    {{ form_label(formEntreprise.nom,'Votre nom' , {'label_attr': {'class': 'label ' }}) }}
-                    {{ form_widget(formEntreprise.nom, {'attr': {'class': 'col-md-11'}}) }}
-                    {{ form_errors(formEntreprise.nom) }}
+                {{ form_label(formEntreprise.nature,'La nature de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.nature, {'attr': {'class': 'col-md-11'}}) }}
+                {{ form_errors(formEntreprise.nature) }}
 
-                    {{ form_label(formEntreprise.mail,'Votre adresse mail' , {'label_attr': {'class': 'label ' }}) }}
-                    {{ form_widget(formEntreprise.mail, {'attr': {'class': 'col-md-11'}}) }}
-                    {{ form_errors(formEntreprise.mail) }}
+                {{ form_label(formEntreprise.nom,'Votre nom' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.nom, {'attr': {'class': 'col-md-11'}}) }}
+                {{ form_errors(formEntreprise.nom) }}
 
-                    {{ form_label(formEntreprise.nomEntreprise,'Le nom de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
-                    {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-11'}}) }}
-                    {{ form_errors(formEntreprise.nomEntreprise) }}
+                {{ form_label(formEntreprise.mail,'Votre adresse mail' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.mail, {'attr': {'class': 'col-md-11'}}) }}
+                {{ form_errors(formEntreprise.mail) }}
 
-                    {{ form_row(formEntreprise.nature) }}
+                {{ form_label(formEntreprise.nomEntreprise,'Le nom de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
+                {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-11'}}) }}
+                {{ form_errors(formEntreprise.nomEntreprise) }}
 
-                    {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
+                {{ form_row(formEntreprise.nature) }}
 
-                    {{ form_end(formEntreprise) }}
-                </div>
+                {{ form_widget(formEntreprise.save, { 'label': 'Enregistrer' }) }}
 
-                <div class="col-md-6">
-                    {{ include("PtitdejBundle:Default:detailsFormPrestataire.html.twig") }}
-                </div>
+                {{ form_end(formEntreprise) }}
             </div>
 
-        </fieldset>
+            <div class="col-md-6 detailsDynamique prestataireDynamique">
+                {{ include("PtitdejBundle:Default:detailsFormPrestataire.html.twig") }}
+            </div>
+            <div class="col-md-6 detailsDynamique entrepriseDynamique">
+                {{ include("PtitdejBundle:Default:detailsFormEntreprise.html.twig") }}
+            </div>
+        </div>
+
+    </fieldset>
 
 
 {% endblock %}
