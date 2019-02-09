@@ -13,15 +13,15 @@
 
 
                 {{ form_label(formEntreprise.nom,'Votre nom' , {'label_attr': {'class': 'label' }}) }}
-                {{ form_widget(formEntreprise.nom) }}
+                {{ form_widget(formEntreprise.nom, {'attr': {'class': 'col-md-11'}}) }}
                 {{ form_errors(formEntreprise.nom) }}
 
                 {{ form_label(formEntreprise.mail,'Votre adresse mail' , {'label_attr': {'class': 'label' }}) }}
-                {{ form_widget(formEntreprise.mail) }}
+                {{ form_widget(formEntreprise.mail, {'attr': {'class': 'col-md-11'}}) }}
                 {{ form_errors(formEntreprise.mail) }}
 
                 {{ form_label(formEntreprise.nomEntreprise,'Le nom de votre entreprise' , {'label_attr': {'class': 'label ' }}) }}
-                {{ form_widget(formEntreprise.nomEntreprise) }}
+                {{ form_widget(formEntreprise.nomEntreprise, {'attr': {'class': 'col-md-11'}}) }}
                 {{ form_errors(formEntreprise.nomEntreprise) }}
 
                 <div style="display:none">
