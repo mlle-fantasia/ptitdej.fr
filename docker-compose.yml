@@ -13,8 +13,8 @@ services:
         build: nginx
         expose:
             - 80
-        ports:
-            - 80:80
+        env_file:
+          - env
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/nginx/:/var/log/nginx
