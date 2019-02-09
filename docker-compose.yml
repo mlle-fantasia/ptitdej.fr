@@ -2,6 +2,7 @@ version: '3.5'
 
 services:
     php:
+        container_name: ptidejfr_php
         build:
             context: php7-fpm
             args:
@@ -10,6 +11,7 @@ services:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/symfony:/var/www/symfony/var/logs
     nginx:
+        container_name: ptidejfr_nginx
         build: nginx
         expose:
             - 80
