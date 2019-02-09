@@ -14,7 +14,7 @@ services:
         expose:
             - 80
         env_file:
-          - env
+          - .env
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/nginx/:/var/log/nginx
