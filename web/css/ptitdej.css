@@ -6,7 +6,7 @@
     padding: 150px 0;
     background-color: rgb(21, 13, 10);
     color: #fff;
-    background-image: url("../images/imagesPtiDej/entreprise12Sombre.jpg");
+    background-image: url("../images/imagesFond/entreprise12Sombre.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -73,13 +73,13 @@ h1{
 }
 
 .fondEntre{
-    background-image: url("../images/imagesPtiDej/entreprise8fond.jpg");
+    background-image: url("../images/imagesFond/entreprise8fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .fondPresta{
-    background-image: url("../images/imagesPtiDej/entreprise2fond.jpg");
+    background-image: url("../images/imagesFond/entreprise2fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -169,7 +169,7 @@ h1{
 .footer{
     padding: 30px 0 40px 0;
     color: #fff;
-    background-image: url("../images/imagesPtiDej/entreprise13fond.jpg");
+    background-image: url("../images/imagesFond/entreprise13fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
