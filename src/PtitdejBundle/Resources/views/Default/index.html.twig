@@ -13,6 +13,34 @@
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         {% endblock %}
 
+        <script type="text/javascript" src="{{ asset('js/tarteAuCitron/tarteaucitron.js') }}"></script>
+
+        <script type="text/javascript">
+            tarteaucitron.init({
+                "privacyUrl": "", /* Privacy policy url */
+
+                "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+                "cookieName": "tartaucitron", /* Cookie name */
+
+                "orientation": "bottom", /* Banner position (top - bottom) */
+                "showAlertSmall": true, /* Show the small banner on bottom right */
+                "cookieslist": true, /* Show the cookie list */
+
+                "adblocker": false, /* Show a Warning if an adblocker is detected */
+                "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+                "highPrivacy": false, /* Disable auto consent */
+                "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+                "removeCredit": true, /* Remove credit link */
+                "moreInfoLink": true, /* Show more info link */
+                "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+                //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+                "readmoreLink": "/cookiespolicy", /* Change the default readmore link */
+
+                "showPercentage":true
+            });
+        </script>
+
     </head>
 
     <body>
@@ -142,6 +170,10 @@
         <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                  crossorigin="anonymous"></script>
         <script src="{{ asset('js/test.js')  }}"></script>
-
+        <script type="text/javascript">
+            tarteaucitron.user.analyticsUa = 'UA-XXXXXXXX-X';
+            tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
+            (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+        </script>
     </body>
 </html>
