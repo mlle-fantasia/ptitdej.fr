@@ -1,14 +1,19 @@
-# See https://github.com/docker-library/php/blob/master/7.1/fpm/Dockerfile
-FROM php:7.1-fpm
+# See https://github.com/docker-library/php/blob/68f7e2d97abd53be373c925c2f040b2db2439d01/7.1/alpine3.9/fpm/Dockerfile
+FROM php:7.3.6-fpm-alpine3.9
+
 ARG TIMEZONE
 
-MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
+MAINTAINER Guillaume CAOUISSIN <guillaume.caouissin@gmail.com>
 
-RUN apt-get update && apt-get install -y \
-    openssl \
+RUN apk add \
     git \
     unzip
 
+RUN docker-php-ext-install \
+        sockets \
+        pdo \
+        pdo_mysql
+		
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
@@ -18,19 +23,6 @@ RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} >
 && printf '[PHP]\ndate.timezone = "%s"\n', ${TIMEZONE} > /usr/local/etc/php/conf.d/tzone.ini \
 && "date"
 
-# Type docker-php-ext-install to see available extensions
-RUN docker-php-ext-install pdo pdo_mysql
-
-
-# install xdebug
-RUN pecl install xdebug \
-&& docker-php-ext-enable xdebug \
-&& echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-&& echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+COPY php-fpm.d /usr/local/etc/php-fpm.d/
 
 WORKDIR /var/www/symfony
